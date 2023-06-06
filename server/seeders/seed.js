@@ -1,11 +1,12 @@
 const db = require('../config/connection');
-const { Profile } = require('../models');
+const { User } = require('../models');
 
 
 db.once('open', async () => {
   try {
-    await Profile.deleteMany({});
-    await Profile.create();
+    await User.deleteMany({});
+    //need to add fake users for seeding
+    await User.create();
 
     console.log('all done!');
     process.exit(0);
