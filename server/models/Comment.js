@@ -1,45 +1,25 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-
-const postSchema = new Schema({
-    title:{
-        type: String,
-        required: true,
+const commentSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    author: String,   
-    description: String,
+    author: String,
     body: String,
-    createdAt: {
-        type: Date,
-        immutable: true,
-        default: Date.now,
-        get: (dateObj) => {
-          var month = dateObj.getUTCMonth() + 1; //months from 1-12
-          var day = dateObj.getUTCDate();
-          var year = dateObj.getUTCFullYear();
-  
-          var newDate = year + "/" + month + "/" + day;
-          return newDate;
-        }
-    },
-    comments: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: "comment",
-      },
-    ]
-
-},
-{
-    toJSON: {
-      virtuals: true,
-      getters: true,
+    likes: {
+      type: Number,
+      default: 0,
     },
   },
+  {
+    toJSON: {
+      timestamps: true,
+    },
+  }
 );
 
+const Comment = model("comment", postSchema);
 
-
-const Post = model('post', postSchema);
-
-module.exports = Post;
+module.exports = Comment;
