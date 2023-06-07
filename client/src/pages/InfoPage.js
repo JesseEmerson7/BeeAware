@@ -4,7 +4,8 @@ const Info = () => {
 
     return (
         <main>
-
+            Hello there
+            info page
 
         </main>
     );
