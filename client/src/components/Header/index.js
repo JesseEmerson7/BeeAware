@@ -14,6 +14,9 @@ const Header = () => {
     // event.preventDefault();
     Auth.logout();
   };
+
+
+
   return (
     <>
       {/* login component is modal dropdown */}
@@ -75,6 +78,7 @@ const Header = () => {
                   Blog
                 </Link>
               </li>
+              {}
               <li>
                 <Link
                   to="/me"
@@ -139,23 +143,24 @@ const Header = () => {
                   </ul>
                   <div className="py-1">
                     {/* this link makes the modal show up for log in */}
-                    <Link
-                      data-modal-target="authentication-modal"
-                      data-modal-toggle="authentication-modal"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                    >
-                      {/* this needs to change based on context of user */}
-                      Sign in
-                    </Link>
-                    <Link
-                      onClick={logout}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                    >
-                      Sign out/Sign in
-=======
-                      {/* this needs to change based on context of user */}
-                      Sign Out
-                    </Link>
+                    {Auth.loggedIn() ? (
+                      <Link
+                        onClick={logout}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                      >
+                        {/* this needs to change based on context of user */}
+                        Sign Out
+                      </Link>
+                    ) : (
+                      <Link
+                        data-modal-target="authentication-modal"
+                        data-modal-toggle="authentication-modal"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                      >
+                        {/* this needs to change based on context of user */}
+                        Sign in
+                      </Link>
+                    )}
                   </div>
                 </div>
               </li>
