@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
+import logo from ".././../../src/assets/logo/BeeAware1.png";
+
+const Header = () => {
 import logo from ".././../../src/assets/logo/BeeAware3.png";
 import Login from "../Login";
 
@@ -21,7 +24,7 @@ const Header = () => {
             <img
               id="logo-img"
               src={logo}
-              className="h-8 mr-3"
+              className="h-8 mr-3 logo-flip"
               alt="BeeAware Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -44,9 +47,9 @@ const Header = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -54,7 +57,7 @@ const Header = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 zigzag-menu">
               <li>
                 <Link
                   to="/Info"
@@ -64,7 +67,6 @@ const Header = () => {
                   Info
                 </Link>
               </li>
-
               <li>
                 <Link
                   to="/blog"
@@ -96,13 +98,12 @@ const Header = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </button>
-                {/* <!-- Dropdown menu --> */}
                 <div
                   id="dropdownNavbar"
                   className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
@@ -150,6 +151,8 @@ const Header = () => {
                       onClick={logout}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
+                      Sign out/Sign in
+=======
                       {/* this needs to change based on context of user */}
                       Sign Out
                     </Link>
