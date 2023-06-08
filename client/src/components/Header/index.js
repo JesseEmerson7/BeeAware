@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
-import logo from ".././../../src/assets/logo/BeeAware1.png";
-
-const Header = () => {
-import logo from ".././../../src/assets/logo/BeeAware3.png";
-import Login from "../Login";
+import logo from "../../assets/logo/BeeAware3.png";
+import Login from "../../components/signUp";
 
 import Auth from "../../utils/auth";
+
+
 
 const Header = () => {
   const logout = (event) => {
