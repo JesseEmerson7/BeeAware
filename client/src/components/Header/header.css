@@ -1,15 +1,40 @@
-/* #logo-img {
-    height: 175px;
-    width: 225px;
-    clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%);
-  } */
+nav {
+    background-image: url("../../assets/img/honeycomb1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   
-
-#logo-img{
+  .text-3d-effect {
+    position: relative;
+    display: inline-block;
+    text-transform: none;
+    font-family: verdana;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffff00; /* Yellow color */
+    text-shadow: 1px 1px 1px #000000,
+      1px 2px 1px #000000,
+      1px 3px 1px #000000,
+      1px 4px 1px #000000,
+      1px 5px 1px #000000,
+      1px 6px 1px #000000,
+      1px 7px 1px #000000,
+      1px 8px 1px #000000,
+      1px 9px 1px #000000,
+      1px 10px 1px #000000,
+      1px 18px 6px rgba(16, 16, 16, 0.4),
+      1px 22px 10px rgba(16, 16, 16, 0.2),
+      1px 25px 35px rgba(16, 16, 16, 0.2),
+      1px 30px 60px rgba(16, 16, 16, 0.4);
+  }
+  
+  #logo-img {
     height: 100px;
-    border-radius: 50px;    
-}
-/* .logo-flip {
+    border-radius: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a black shadow */
+  }
+  
+  .logo-flip {
     animation: flip 5s infinite;
     transform-style: preserve-3d;
   }
@@ -25,107 +50,4 @@
       transform: perspective(800px) rotateY(360deg);
     }
   }
-  
- header.css 
-
-.zigzag-menu li:nth-child(odd) {
-    background-color: #fcd12a;
-    color: #000;
-  }
-  
-  .zigzag-menu li:nth-child(even) {
-    background-color: #000;
-    color: #fcd12a;
-  }
-  
-  .zigzag-menu li:first-child {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .zigzag-menu li:last-child {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  body {
-    background: linear-gradient(to bottom right, #fcd12a, #000);
-  }
-  
-  .zigzag-menu li:nth-child(odd) {
-    background-color: #fcd12a;
-    color: #000;
-  }
-  
-  .zigzag-menu li:nth-child(even) {
-    background-color: #000;
-    color: #fcd12a;
-  }
-  
-  .zigzag-menu li:first-child {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .zigzag-menu li:last-child {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  } 
-
-  body > div > nav > div > a > span {
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-    animation: neon 1.5s ease-in-out infinite alternate;
-  }
-  
-  @keyframes neon {
-    0% {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-      transform: translateZ(0);
-    }
-    100% {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-      transform: translateZ(100px);
-    }
-  }
-
-  .beeaware-text {
-    font-size: 3em;
-    position: relative;
-    perspective: 400px;
-  }
-  
-  .beeaware-text span {
-    display: inline-block;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: flip 5s infinite;
-  }
-  
-  @keyframes flip {
-    0% {
-      transform: perspective(400px) rotateY(0);
-    }
-    100% {
-      transform: perspective(400px) rotateY(1turn);
-    }
-  }
-  
-  .beeaware-text span:before,
-  .beeaware-text span:after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .beeaware-text span:before {
-    color: #000;
-    transform: translateZ(-1px);
-  }
-  
-  .beeaware-text span:after {
-    color: #ffdd00;
-    transform: translateZ(1px);
-  } */
   
