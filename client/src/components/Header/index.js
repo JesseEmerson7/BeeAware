@@ -4,8 +4,20 @@ import "./header.css";
 import logo from ".././../../src/assets/logo/BeeAware1.png";
 
 const Header = () => {
+import logo from ".././../../src/assets/logo/BeeAware3.png";
+import Login from "../Login";
+
+import Auth from "../../utils/auth";
+
+const Header = () => {
+  const logout = (event) => {
+    // event.preventDefault();
+    Auth.logout();
+  };
   return (
     <>
+      {/* login component is modal dropdown */}
+      <Login />
       <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="/" className="flex items-center">
@@ -65,7 +77,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/profiles/123345"
+                  to="/me"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Profile
@@ -126,11 +138,23 @@ const Header = () => {
                     </li>
                   </ul>
                   <div className="py-1">
+                    {/* this link makes the modal show up for log in */}
                     <Link
-                      to="/sign"
+                      data-modal-target="authentication-modal"
+                      data-modal-toggle="authentication-modal"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    >
+                      {/* this needs to change based on context of user */}
+                      Sign in
+                    </Link>
+                    <Link
+                      onClick={logout}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
                       Sign out/Sign in
+=======
+                      {/* this needs to change based on context of user */}
+                      Sign Out
                     </Link>
                   </div>
                 </div>
