@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/logo/BeeAware3.png";
-import Login from "../Login";
+import Login from "../Login/index";
 import Auth from "../../utils/auth";
 
 const Header = () => {
@@ -78,15 +78,17 @@ const Header = () => {
                   Blog
                 </Link>
               </li>
-              {Auth.loggedIn() && <li>
-                <Link
-                  to="/me"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Profile
-                </Link>
-              </li> }
-              
+              {Auth.loggedIn() && (
+                <li>
+                  <Link
+                    to="/me"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Profile
+                  </Link>
+                </li>
+              )}
+
               <li>
                 <button
                   id="dropdownNavbarLink"
