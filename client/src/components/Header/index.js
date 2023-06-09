@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/logo/BeeAware3.png";
-import Login from "../Login/index";
+import Login from "../Login";
 import Auth from "../../utils/auth";
 
 const Header = () => {
