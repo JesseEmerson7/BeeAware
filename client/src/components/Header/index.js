@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/logo/BeeAware3.png";
-import Login from "../login";
-
+import Login from "../Login";
 import Auth from "../../utils/auth";
 
-
-
 const Header = () => {
+  useEffect(() => {
+    const spanElement = document.querySelector("#root > nav > div > a > span");
+    if (spanElement) {
+      spanElement.classList.add("text-3d-effect"); // Add the 3D effect class
+    }
+  }, []);
+
   const logout = (event) => {
-    // event.preventDefault();
     Auth.logout();
   };
-
-
 
   return (
     <>
