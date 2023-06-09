@@ -51,11 +51,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    postBlogPost: async (parent, args, context) => {
-      if(context.user){
-        Post.create({ args.})
-      }
-    }
+    // postBlogPost: async (parent, args, context) => {
+    //   if(context.user){
+    //     Post.create({ args.})
+    //   }
+    // }
   },
 };
 
