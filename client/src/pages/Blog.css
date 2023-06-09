@@ -1,0 +1,48 @@
+.blog-container {
+    margin: 20px;
+  }
+  
+  .blog-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .blog-content {
+    margin-bottom: 10px;
+  }
+  
+  .vote-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .vote-count {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .vote-button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .upvote {
+    color: green;
+  }
+  
+  .downvote {
+    color: red;
+  }
+  
