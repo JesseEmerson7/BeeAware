@@ -1,5 +1,8 @@
 .blog-container {
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .blog-card {
@@ -91,11 +94,13 @@
   }
   
   .upvote::before {
-    content: "\\2191"; /* Up arrow */
+    font-family: "Font Awesome 5 Free";
+    content: "\f062"; /* Up arrow icon */
   }
   
   .downvote::before {
-    content: "\\2193"; /* Down arrow */
+    font-family: "Font Awesome 5 Free";
+    content: "\f063"; /* Down arrow icon */
   }
   
   @media (max-width: 768px) {

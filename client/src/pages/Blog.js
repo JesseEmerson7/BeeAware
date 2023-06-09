@@ -19,7 +19,6 @@ const Blog = () => {
       downvotes: 1,
       createdAt: new Date(),
     },
-    // Add more blog posts as needed
   ]);
 
   const [newPost, setNewPost] = useState({
@@ -121,31 +120,33 @@ const Blog = () => {
         </button>
       </div>
 
-      {rankedBlogPosts.map((post) => (
-        <div className="blog-card" key={post.id}>
-          <h2 className="blog-title">{post.title}</h2>
-          <p className="blog-content">{post.content}</p>
-          <p className="blog-date">
-            Created at: {post.createdAt.toLocaleString()}
-          </p>
-          <div className="vote-container">
-            <div className="vote-count">{post.upvotes - post.downvotes}</div>
-            <button
-              className="vote-button upvote"
-              onClick={() => handleUpvote(post.id)}
-            >
-              ↑
-            </button>
-            <button
-              className="vote-button downvote"
-              onClick={() => handleDownvote(post.id)}
-            >
-              ↓
-            </button>
-            <button className="share-button">Share</button>
+      <div className="blog-card-container">
+        {rankedBlogPosts.map((post) => (
+          <div className="blog-card" key={post.id}>
+            <h2 className="blog-title">{post.title}</h2>
+            <p className="blog-content">{post.content}</p>
+            <p className="blog-date">
+              Created at: {post.createdAt.toLocaleString()}
+            </p>
+            <div className="vote-container">
+              <div className="vote-count">{post.upvotes - post.downvotes}</div>
+              <button
+                className="vote-button upvote"
+                onClick={() => handleUpvote(post.id)}
+              >
+                <span className="arrow">&#8593;</span>
+              </button>
+              <button
+                className="vote-button downvote"
+                onClick={() => handleDownvote(post.id)}
+              >
+                <span className="arrow">&#8595;</span>
+              </button>
+              <button className="share-button">Share</button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
