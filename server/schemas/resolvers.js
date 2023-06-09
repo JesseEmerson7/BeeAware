@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -9,7 +9,7 @@ const resolvers = {
     },
 
     user: async (parent, { id }) => {
-      return User.findOne({ _id: id });
+      return User.findOne({ _id: id }).populate("posts").populate("comments");
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
@@ -51,7 +51,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // Make it so a logged in user can only remove a skill from their own profile
+    postBlogPost: async (parent, args, context) => {
+      if(context.user){
+        Post.create({ args.})
+      }
+    }
   },
 };
 
