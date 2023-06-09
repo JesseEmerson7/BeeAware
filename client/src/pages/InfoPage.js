@@ -7,7 +7,7 @@ import commonEastern from "./../assets/img/Common Eastern Bumblebee Img.jpg";
 import diggerBee from "./../assets/img/Digger Bee Img.jpg";
 import eastAfrican from "./../assets/img/East African Lowland Honey Bee Img.jpg";
 import easternCarpenter from "./../assets/img/Eastern Carpenter Bee Img.jpg";
-import honeyBee from "./../assets/img/HoneyBee Img.jpg";
+import honeyBee from "./../assets/img/HoneyBee_Img.jpg";
 import orchidBee from "./../assets/img/Orchid Bee Img.jpg";
 import southeasternBlueberry from "./../assets/img/Southeastern Blueberry Bee Img.jpg";
 import southernCarpenter from "./../assets/img/Southern Carpenter Bee Img.jpg";
