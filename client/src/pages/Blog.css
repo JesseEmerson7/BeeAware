@@ -7,8 +7,8 @@
     border: 1px solid #dddddd;
     border-radius: 4px;
     padding: 20px;
-    margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
   }
   
   .blog-title {
@@ -44,73 +44,6 @@
   
   .downvote {
     color: red;
-  }
-  
-  .blog-card {
-    background-color: #f0f0f0;
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-  
-  .create-post-card {
-    background-color: #fff;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .create-post-card input,
-  .create-post-card textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
-    padding: 8px;
-  }
-  
-  .create-post-card button {
-    display: block;
-    background-color: #009688;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .blog-post-info {
-    margin-bottom: 16px;
-  }
-  
-  .blog-title {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  
-  .blog-date {
-    color: #888;
-    margin-bottom: 8px;
-  }
-  
-  .blog-content {
-    margin-bottom: 8px;
-  }
-  
-  .blog-post-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .vote-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-  
-  .vote-button {
-    margin-left: 8px;
-    background-color: #009688;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
   }
   
   .blog-heading {
@@ -153,40 +86,70 @@
     background-color: #ff0000; /* Red color */
     color: #ffffff; /* White text */
   }
- 
-  .blog-card {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
   
-  .blog-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+  @media (max-width: 768px) {
+    .blog-card {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
   
-  .blog-card input,
-  .blog-card textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-  }
+    .create-post-card {
+      max-width: 100%;
+      margin: 0;
+    }
   
-  .blog-card button {
-    background-color: #0066cc;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+    .create-post-card input,
+    .create-post-card textarea {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 8px;
+    }
   
-  .blog-card button:hover {
-    background-color: #0052a3;
+    .create-post-card button {
+      display: block;
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  
+    .blog-post-info {
+      margin-bottom: 16px;
+    }
+  
+    .blog-title {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  
+    .blog-date {
+      color: #888;
+      margin-bottom: 8px;
+    }
+  
+    .blog-content {
+      margin-bottom: 8px;
+    }
+  
+    .blog-post-actions {
+      display: flex;
+      align-items: center;
+    }
+  
+    .vote-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+  
+    .vote-button {
+      margin-left: 8px;
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
   }
   
