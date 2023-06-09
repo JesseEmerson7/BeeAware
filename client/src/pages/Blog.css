@@ -75,6 +75,9 @@
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .upvote {
@@ -85,6 +88,14 @@
   .downvote {
     background-color: #ff0000; /* Red color */
     color: #ffffff; /* White text */
+  }
+  
+  .upvote::before {
+    content: "\\2191"; /* Up arrow */
+  }
+  
+  .downvote::before {
+    content: "\\2193"; /* Down arrow */
   }
   
   @media (max-width: 768px) {

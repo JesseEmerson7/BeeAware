@@ -6,7 +6,7 @@ const Blog = () => {
     {
       id: 1,
       title: "Blog Post 1",
-      content: "This is the content of Blog Post 1",
+      content: "This is the test for Blog Post 1",
       upvotes: 10,
       downvotes: 2,
       createdAt: new Date(),
@@ -14,7 +14,7 @@ const Blog = () => {
     {
       id: 2,
       title: "Blog Post 2",
-      content: "This is the content of Blog Post 2",
+      content: "This is the test for Blog Post 2",
       upvotes: 5,
       downvotes: 1,
       createdAt: new Date(),
@@ -86,6 +86,10 @@ const Blog = () => {
     );
   };
 
+  const rankedBlogPosts = [...blogPosts].sort(
+    (a, b) => b.upvotes - b.downvotes - (a.upvotes - a.downvotes)
+  );
+
   return (
     <div className="blog-container">
       <h1 className="blog-heading">Let's Buzz about it</h1>
@@ -112,10 +116,12 @@ const Blog = () => {
           value={newPost.username}
           onChange={handleInputChange}
         />
-        <button onClick={handleNewPost}>Submit</button>
+        <button className="submit-button" onClick={handleNewPost}>
+          Submit
+        </button>
       </div>
 
-      {blogPosts.map((post) => (
+      {rankedBlogPosts.map((post) => (
         <div className="blog-card" key={post.id}>
           <h2 className="blog-title">{post.title}</h2>
           <p className="blog-content">{post.content}</p>
@@ -123,20 +129,20 @@ const Blog = () => {
             Created at: {post.createdAt.toLocaleString()}
           </p>
           <div className="vote-container">
-            <div className="vote-count">{post.upvotes}</div>
+            <div className="vote-count">{post.upvotes - post.downvotes}</div>
             <button
               className="vote-button upvote"
               onClick={() => handleUpvote(post.id)}
             >
-              Upvote
+              ↑
             </button>
-            <div className="vote-count">{post.downvotes}</div>
             <button
               className="vote-button downvote"
               onClick={() => handleDownvote(post.id)}
             >
-              Downvote
+              ↓
             </button>
+            <button className="share-button">Share</button>
           </div>
         </div>
       ))}
