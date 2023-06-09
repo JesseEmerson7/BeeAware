@@ -1,17 +1,27 @@
 import { gql } from '@apollo/client';
 
-
-
-export const QUERY_ME = gql`
-  query me {
-    me {
-      _id
-      username
-      email
-      
-    }
+export const QUERY_USER_PROFILE = gql`
+query User($userId: ID!) {
+  user(id: $userId) {
+    username
+    profilePic
   }
-`;
+}
+`
+
+
+
+
+// export const QUERY_ME = gql`
+//   query  {
+//     me {
+//       _id
+//       username
+//       email
+      
+//     }
+//   }
+// `;
 
 
 
