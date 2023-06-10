@@ -1,17 +1,17 @@
 import React from "react";
-import americanBumblebee from "./../assets/img/American Bumblebee Img.jpg";
-import brownBelted from "./../assets/img/Brown-Belted Bumblebee Img.jpg";
+import americanBumblebee from "./../assets/img/AmericanBumblebeeImg.jpg";
+import brownBelted from "./../assets/img/Brown-BeltedBumblebeeImg.jpg";
 import bumblebee from "./../assets/img/Bumblebee.jpg";
-import carpenterBee from "./../assets/img/Carpenter Bee Img.jpg";
-import commonEastern from "./../assets/img/Common Eastern Bumblebee Img.jpg";
-import diggerBee from "./../assets/img/Digger Bee Img.jpg";
-import eastAfrican from "./../assets/img/East African Lowland Honey Bee Img.jpg";
-import easternCarpenter from "./../assets/img/Eastern Carpenter Bee Img.jpg";
+import carpenterBee from "./../assets/img/CarpenterBeeImg.jpg";
+import commonEastern from "./../assets/img/CommonEasternBumblebeeImg.jpg";
+import diggerBee from "./../assets/img/DiggerBeeImg.jpg";
+import eastAfrican from "./../assets/img/EastAfricanLowlandHoneyBeeImg.jpg";
+import easternCarpenter from "./../assets/img/EasternCarpenterBeeImg.jpg";
 import honeyBee from "./../assets/img/HoneyBee_Img.jpg";
-import orchidBee from "./../assets/img/Orchid Bee Img.jpg";
-import southeasternBlueberry from "./../assets/img/Southeastern Blueberry Bee Img.jpg";
-import southernCarpenter from "./../assets/img/Southern Carpenter Bee Img.jpg";
-import southernPlains from "./../assets/img/Southern Plains Bumblebee Img.jpg";
+import orchidBee from "./../assets/img/OrchidBeeImg.jpg";
+import southeasternBlueberry from "./../assets/img/SoutheasternBlueberryBeeImg.jpg";
+import southernCarpenter from "./../assets/img/SouthernCarpenterBeeImg.jpg";
+import southernPlains from "./../assets/img/SouthernPlainsBumblebeeImg.jpg";
 import backgroundImage from "./../assets/img/InfoPageBckgrd1.avif";
 import "./InfoPage.js";
 
