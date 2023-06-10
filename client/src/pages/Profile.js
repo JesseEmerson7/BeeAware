@@ -8,7 +8,14 @@ import { QUERY_USER_PROFILE } from "../utils/queries";
 import Auth from "../utils/auth";
 import samplePic from "../assets/img/HoneyBee_Img.jpg";
 
+
+
+//react component function
 const Profile = () => {
+
+  //button for create blog post function
+const createLoad = () => window.location.href = '/create'
+
   const userInfo = Auth.getProfile();
 
   const { loading, data } = useQuery(QUERY_USER_PROFILE, {
@@ -51,7 +58,7 @@ const Profile = () => {
           >
             <button
               type="button"
-              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-5/6 mx-auto md:w-1/5 md:ml-10"
+              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-5/6 mx-auto md:w-1/5 md:ml-10" onClick={createLoad}
             >
               Create New Blog Post
             </button>
