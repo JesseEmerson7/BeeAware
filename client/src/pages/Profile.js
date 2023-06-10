@@ -10,13 +10,12 @@ import samplePic from "../assets/img/HoneyBee_Img.jpg";
 
 const Profile = () => {
   const userInfo = Auth.getProfile();
- 
 
   const { loading, data } = useQuery(QUERY_USER_PROFILE, {
     variables: { userId: userInfo.data._id },
   });
 
-  const username = data?.user.username
+  const username = data?.user.username;
 
   if (loading) {
     return <div>loading...</div>;
@@ -30,7 +29,7 @@ const Profile = () => {
           className="flex flex-col w-full justify-center"
         >
           {/* profile section with img and username/bio   */}
-          <div className="flex flex-col content-center  md:justify-center md:flex-row ">
+          <div className="flex flex-col content-center mt-5  md:justify-center md:flex-row ">
             <div className=" w-full flex justify-center md:w-1/2 md:justify-end">
               <img src={samplePic} className="rounded-full" />
             </div>
