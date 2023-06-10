@@ -75,10 +75,8 @@ const Home = () => {
               <span className="font-bold text-blue-500">Us</span>
             </h2>
             <p class="sm:text-lg mt-6">
-                All LocaleData projects are private. Each project can have multiple collaborators
-                with different roles and access permissions. You determine who can see and edit
-                your translations. Just add admins, developers, translators and configure their
-                access rights.
+                We Provide every infomation that is needed to know about Bees
+                Signup to find out more.
             </p>
         </div>
     </div>
@@ -89,11 +87,11 @@ const Home = () => {
         </img></div>
         <div class="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
             <h3 class="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                Bulk editing
+                Fun Fact
             </h3>
             <p class="sm:text-lg mt-6">
-                Do you need to change the path of many translation keys at once? No problem, just
-                use the bulk editing feature and enjoy the results.
+            Bees maintain a temperature of 92-93 degrees Fahrenheit in their central brood
+             nest regardless of whether the outside temperature is 110 or -40 degrees.
             </p>
         </div>
     </div>
