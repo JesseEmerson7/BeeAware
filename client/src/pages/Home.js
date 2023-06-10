@@ -62,34 +62,35 @@ import Video from '../assets/img/Bees.mp4'
 const Home = () => {
   return (
     <main>
-<div class="text-center p-8">
+<div className="text-center p-8">
 
 
-    <div class="flex flex-wrap items-center mt-20 text-left text-center">
-        <div class="w-full md:w-3/5 lg:w-1/2 px-4">
-            <img src="https://picsum.photos/400/240" alt="project members" class="inline-block rounded shadow-lg border border-merino-400">
+    <div className="flex flex-wrap items-center mt-20 text-left text-center">
+        <div className="w-full md:w-3/5 lg:w-1/2 px-4">
+            <img src="https://picsum.photos/400/240" alt="project members" className="inline-block rounded shadow-lg border border-merino-400">
         </img></div>
-        <div class="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
+        <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
             <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
                 About
-              <span className="font-bold text-blue-500">Us</span>
+              <span className="font-bold text-blue-600">Us</span>
             </h2>
-            <p class="sm:text-lg mt-6">
+            <p className="sm:text-lg mt-6">
                 We Provide every infomation that is needed to know about Bees
                 Signup to find out more.
             </p>
         </div>
     </div>
 
-    <div class="flex flex-wrap items-center mt-20 text-left text-center">
-        <div class="w-full md:w-3/5 lg:w-1/2 px-4">
-            <img src="https://picsum.photos/400/240" alt="bulk editing" class="inline-block rounded shadow-lg border border-merino-400">
+    <div className="flex flex-wrap items-center mt-20 text-left text-center">
+        <div className="w-full md:w-3/5 lg:w-1/2 px-4">
+            <img src="https://picsum.photos/400/240" alt="bulk editing" className="inline-block rounded shadow-lg border border-merino-400">
         </img></div>
-        <div class="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
-            <h3 class="font-bold mt-8 text-xl md:mt-0 sm:text-2xl">
-                Fun Fact
-            </h3>
-            <p class="sm:text-lg mt-6">
+        <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
+        <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
+                Fun
+              <span className="font-bold text-blue-600">Fact</span>
+            </h2>
+            <p className="sm:text-lg mt-6">
             Bees maintain a temperature of 92-93 degrees Fahrenheit in their central brood
              nest regardless of whether the outside temperature is 110 or -40 degrees.
             </p>
