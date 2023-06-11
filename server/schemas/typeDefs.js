@@ -17,7 +17,7 @@ const typeDefs = gql`
     description: String
     body: String
     comments: [Comment]
-    createdAt: Int
+    createdAt: String
   }
 
   type Comment {
@@ -42,8 +42,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createPost(username: String )
-
+    createPost(title:String!, author:String!, description:String!, body:String! ): Post
     removeUser: User
   }
 `;

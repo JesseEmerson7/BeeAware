@@ -23,8 +23,8 @@ const postSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
-      timestamps: true,
     },
+    timestamps: true,
   }
 );
 

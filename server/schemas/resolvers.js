@@ -9,7 +9,8 @@ const resolvers = {
     },
 
     user: async (parent, { id }, context) => {
-      return User.findOne({ _id: id }).populate("posts").populate("comments");
+      const user = await User.findOne({ _id: id }).populate("posts").populate("comments");
+      return user;
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
@@ -51,11 +52,16 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // postBlogPost: async (parent, args, context) => {
-    //   if(context.user){
-    //     Post.create({ args.})
-    //   }
-    // }
+    createPost: async (parent, args, context) => {
+      // if(context.user){
+       return Post.create({ 
+          title:args.title,
+          author:args.author,
+          description:args.description,
+          body:args.body,
+        })
+      // }
+    }
   },
 };
 
