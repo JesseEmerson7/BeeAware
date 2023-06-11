@@ -25,8 +25,12 @@ const createLoad = () => window.location.href = '/create'
 
   const username = data?.user.username;
   console.log(data);
-  const posts = data.user.posts
+  const posts = data?.user.posts
   console.log(posts)
+
+
+
+
 
   if (loading) {
     return <div>loading...</div>;

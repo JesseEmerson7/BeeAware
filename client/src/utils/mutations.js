@@ -33,6 +33,19 @@ mutation createPost($title: String!, $author: String!, $description: String!, $b
 }
 `;
 
+export const DELETE_POST = gql`
+mutation deletePost($postId: ID) {
+  deletePost(postId: $postId) {
+    _id
+    username
+    posts {
+      _id
+      title
+    }
+  }
+}
+`
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

@@ -78,7 +78,17 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in")
        
     },
+    deletePost: async (parent,args,context)=>{
 
+      if(context.user){
+        const post = await Post.findOneAndDelete({ _id:args.postId });
+        const updatedUser = await User.findOneAndUpdate({_id:context.user._id},{
+          $pull:{ posts: args.postId}
+        }, {new:true}).populate('posts')
+        return updatedUser;
+      }
+      throw new AuthenticationError("You must be logged in")
+    }
   
   },
 };
