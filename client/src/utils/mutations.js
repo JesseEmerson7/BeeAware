@@ -25,14 +25,13 @@ import { gql } from "@apollo/client";
 export const CREATE_POST = gql`
 mutation createPost($title: String!, $author: String!, $description: String!, $body: String!) {
   createPost(title: $title, author: $author, description: $description, body: $body) {
-    title
-    author
-    description
-    body
-    createdAt
+    _id
+    posts {
+      _id
+    }
   }
 }
-`
+`;
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {

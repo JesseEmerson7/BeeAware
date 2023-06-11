@@ -7,6 +7,7 @@ import { QUERY_USER_PROFILE } from "../utils/queries";
 
 import Auth from "../utils/auth";
 import samplePic from "../assets/img/HoneyBee_Img.jpg";
+import PostList from "../components/PostList"
 
 
 
@@ -23,6 +24,9 @@ const createLoad = () => window.location.href = '/create'
   });
 
   const username = data?.user.username;
+  console.log(data);
+  const posts = data.user.posts
+  console.log(posts)
 
   if (loading) {
     return <div>loading...</div>;
@@ -64,7 +68,9 @@ const createLoad = () => window.location.href = '/create'
             </button>
             <h2 className="text-center font-semibold mt-4">My Blog Posts</h2>
             <div>
-              <div
+              <PostList posts={posts}/>
+
+              {/* <div
                 id="blogPost-div"
                 className=" flex flex-row justify-center content-center border border-yellow-200  gap-5 h-12 py-2 w-full md:mx-10 "
               >
@@ -79,11 +85,10 @@ const createLoad = () => window.location.href = '/create'
                     delete
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
-          <div
-            id="blog-post-div"
+          {/* <div
             className=" flex flex-col w-full justify-center my-8 "
           >
             <h2 className="text-center font-semibold mt-4">My Comments</h2>
@@ -105,7 +110,7 @@ const createLoad = () => window.location.href = '/create'
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
         <section
           id="past-comments-container"
