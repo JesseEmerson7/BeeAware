@@ -8,7 +8,7 @@ const resolvers = {
       return User.find();
     },
 
-    user: async (parent, { id }) => {
+    user: async (parent, { id }, context) => {
       return User.findOne({ _id: id }).populate("posts").populate("comments");
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
