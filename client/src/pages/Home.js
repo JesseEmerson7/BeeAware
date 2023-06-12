@@ -24,8 +24,10 @@ const Home = () => {
               <span className="font-bold text-yellow-500">Us</span>
             </h2>
             <p className="sm:text-lg mt-6">
-                We Provide every infomation that is needed to know about Bees
-                Signup to find out more.
+            Welcome to BeeAware, a dedicated platform aimed at raising awareness about the vital role of local pollinators in Florida. We are passionate about promoting the significance of these essential creatures and the invaluable service they provide to our ecosystems and food production.
+            <br/>
+            Join our website dedicated to local pollinators in Florida to gain valuable insights into their importance, discover the latest news and research, and connect with a passionate community. 
+
             </p>
               <div className="mt-5 sm:flex md:mt-8">
                  <div className="rounded-md shadow">
