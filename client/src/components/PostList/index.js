@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { DELETE_POST } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const PostList = ({ posts}) => {
 
@@ -22,7 +23,7 @@ const handleDeletePost = async (event) =>{
   }
 
     if (posts.length === 0) {
-      return <div>You have no blog posts yet!</div>;
+      return <div className=" text-center mt-10 font-bold border border-yellow-300 w-full mx-10">You have no blog posts yet!</div>;
     } else {
       return (
         <>
@@ -35,9 +36,9 @@ const handleDeletePost = async (event) =>{
               <h2 className="inline w-3/5">{post.title}</h2>
   
               <div className="flex flex-row justify-center gap-4 w-1/5">
-                <span className="material-symbols-outlined hover:cursor-pointer hover:">
+                <Link className="material-symbols-outlined hover:cursor-pointer hover:" id={post._id} to={`/update/${post._id}`}>
                   edit_square
-                </span>
+                </Link>
                 <span className="material-symbols-outlined pr-4 hover:cursor-pointer" onClick={handleDeletePost}  id={post._id}>
                   delete
                 </span>

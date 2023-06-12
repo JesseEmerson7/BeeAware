@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
@@ -7,15 +6,15 @@ import { QUERY_USER_PROFILE } from "../utils/queries";
 
 import Auth from "../utils/auth";
 import samplePic from "../assets/img/HoneyBee_Img.jpg";
-import PostList from "../components/PostList"
-
+import PostList from "../components/PostList";
 
 
 //react component function
 const Profile = () => {
 
+
   //button for create blog post function
-const createLoad = () => window.location.href = '/create'
+  const createLoad = () => (window.location.href = "/create");
 
   const userInfo = Auth.getProfile();
 
@@ -25,12 +24,8 @@ const createLoad = () => window.location.href = '/create'
 
   const username = data?.user.username;
   console.log(data);
-  const posts = data?.user.posts
-  console.log(posts)
-
-
-
-
+  const posts = data?.user.posts;
+  console.log(posts);
 
   if (loading) {
     return <div>loading...</div>;
@@ -38,6 +33,7 @@ const createLoad = () => window.location.href = '/create'
 
   return (
     <>
+
       <div className="flex flex-col justify-center ">
         <section
           id="profile-container"
@@ -66,13 +62,14 @@ const createLoad = () => window.location.href = '/create'
           >
             <button
               type="button"
-              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-5/6 mx-auto md:w-1/5 md:ml-10" onClick={createLoad}
+              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-5/6 mx-auto md:w-1/5 md:ml-10"
+              onClick={createLoad}
             >
               Create New Blog Post
             </button>
             <h2 className="text-center font-semibold mt-4">My Blog Posts</h2>
             <div>
-              <PostList posts={posts}/>
+              <PostList posts={posts} />
 
               {/* <div
                 id="blogPost-div"

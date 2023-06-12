@@ -38,6 +38,7 @@ const typeDefs = gql`
     users: [User]!
     user: User
     me: User
+    getSinglePost(postId:ID):Post
   }
 
   type Mutation {
@@ -46,7 +47,7 @@ const typeDefs = gql`
     createPost(title:String!, author:String!, description:String!, body:String! ): User
     removeUser: User
     deletePost(postId:ID): User
-  
+    updatePost(postId:ID! ,title:String!, description:String!, body:String!):Post
   }
 `;
 

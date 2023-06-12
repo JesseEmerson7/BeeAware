@@ -15,7 +15,18 @@ query User {
   }
 }
 `
-
+export const QUERY_SINGLE_POST = gql`
+query getSinglePost($postId: ID) {
+  getSinglePost(postId: $postId) {
+    _id
+    title
+    description
+    author
+    body
+    createdAt
+  }
+}
+`
 
 
 

@@ -16,6 +16,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
 import CreatePost from "./pages/CreatePost";
+import UpdateForm from "./pages/updatePost";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,6 +40,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+ 
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -52,6 +55,7 @@ function App() {
               <Route path="/me" element={<Profile />} />
               <Route path="/Info" element={<InfoPage />} />
               <Route path="/create" element={<CreatePost/>}/>
+              <Route path='/update/:id' element={<UpdateForm  />}/>
               <Route path="*" element={<Home/>}/>
             </Routes>
           </div>
