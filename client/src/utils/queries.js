@@ -1,15 +1,32 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER_PROFILE = gql`
-query User($userId: ID!) {
-  user(id: $userId) {
+query User {
+  user {
     _id
     username
     profilePic
+    email
+    posts {
+      _id
+      createdAt
+      title
+    }
   }
 }
 `
-
+export const QUERY_SINGLE_POST = gql`
+query getSinglePost($postId: ID) {
+  getSinglePost(postId: $postId) {
+    _id
+    title
+    description
+    author
+    body
+    createdAt
+  }
+}
+`
 
 
 
