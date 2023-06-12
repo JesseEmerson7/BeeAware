@@ -41,7 +41,7 @@ const Home = () => {
         </div>
     </div>
 
-    <div className="flex flex-wrap items-center mt-20 text-left justify-center">
+    <div className="flex flex-wrap flex-row-reverse items-center mt-20 text-left justify-center">
         <div className="w-full md:w-3/4 lg:w-1/2 px-4">
             <img src= {Bees} alt="bulk" className="rounded-full  h-64 m-auto">
         </img>
