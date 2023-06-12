@@ -32,7 +32,7 @@ const Signup = () => {
     const newUserInfo = formState;
     try {
       const user = await signThemUp({
-        variables: { ...formState },
+        variables: { ...newUserInfo },
       });
       const token = user.data.addUser.token;
       console.log(user.data.addUser.token);
