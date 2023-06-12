@@ -34,19 +34,20 @@ const Info = () => {
             </div>
 
             <div className="text-3xl text-center font-medium">American Bumblebee</div>
-            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-28">
-                <div className="card-container flex justify-center pt-4 pb-5 img-1">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
+                <div className="card-container flex justify-center pt-4 pb-5">
                     <img className="card-content object-contain"
                         id="beePic1"
                         src={americanBumblebee}
-                        alt="American Bumblebee Image" />
+                        alt="American Bumblebee Image"
+                    />
+                </div>
+                <div className="card-content w-full lg:w-2/3" >
+                    <p className="px-6 md:pl-16 leading-7" >There was a time when you could find this bumble bee across most of North America from Quebec to Florida, westward to South Dakota, then south into the central Mountains of Mexico. Within the past decade, though, its numbers have collapsed. It is strongly suspected that the American bumble bee was infected with a virus when European bumble bees were imported into North America to pollinate greenhouse tomatoes. It is still commonly found in the southern parts of its historic distribution from Florida, west to Colorado, Texas, and New Mexico. This species favors prairies and grasslands and is rarely associated with extensive forests.</p>
                 </div>
             </div>
-            <div className="card-content w-2/3">
-                <p className="px-6 md:pl-16 leading-7">There was a time when you could find this bumble bee across most of North America from Quebec to Florida, westward to South Dakota, then south into the central Mountains of Mexico. Within the past decade, though, its numbers have collapsed. It is strongly suspected that the American bumble bee was infected with a virus when European bumble bees were imported into North America to pollinate greenhouse tomatoes. It is still commonly found in the southern parts of its historic distribution from Florida, west to Colorado, Texas, and New Mexico. This species favors prairies and grasslands and is rarely associated with extensive forests.</p>
-            </div>
             <div className="text-3xl text-center font-medium">Brown-Belted Bumblebee</div>
-            <div className="card-container flex flex-col lg:flex-row lg:px-36 py-11 gap-28">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content"
                         id="beePic2"
@@ -58,7 +59,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Bumblebee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic3"
@@ -70,7 +71,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Carpenter Bee</div>
-            <div className="card-container flex flex-row px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic4"
@@ -82,7 +83,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Common Eastern Bumblebee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic5"
@@ -94,7 +95,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Digger Bee</div>
-            <div className="card-container flex flex-row px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic6"
@@ -106,7 +107,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">East African Lowland Honeybee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic7"
@@ -118,7 +119,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Eastern Carpenter Bee</div>
-            <div className="card-container flex flex-row px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic8"
@@ -130,7 +131,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Honeybee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic9"
@@ -142,7 +143,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Orchid Bee</div>
-            <div className="card-container flex flex-row px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic10"
@@ -154,7 +155,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Southeastern Blueberry Bee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic11"
@@ -166,7 +167,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Southern Carpenter Bee</div>
-            <div className="card-container flex flex-row px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row lg:px-36 lg:py-11 lg:gap-20">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic12"
@@ -178,7 +179,7 @@ const Info = () => {
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Southern Plains Bumblebee</div>
-            <div className="card-container flex flex-row-reverse px-36 py-11 gap-32">
+            <div className="card-container flex flex-col pb-10 lg:flex-row-reverse lg:px-36 lg:py-11 lg:gap-32">
                 <div className="card-container">
                     <img className="card-content object-contain"
                         id="beePic13"
