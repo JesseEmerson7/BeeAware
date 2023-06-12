@@ -32,10 +32,10 @@ const Header = () => {
               alt="BeeAware Logo"
             />
             <img
-            id="logo-text"
-            src={logotext}
-            className= "h-12 mr-3"
-            alt="logo text title"
+              id="logo-text"
+              src={logotext}
+              className="h-12 mr-3"
+              alt="logo text title"
             />
           </Link>
           <button
@@ -68,8 +68,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/Info"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-                  aria-current="page"
+                  className="block py-2 pl-3 pr-4 text-gray-800  rounded md:bg-transparent  md:p-0 md:dark:bg-transparent"
                 >
                   Info
                 </Link>
