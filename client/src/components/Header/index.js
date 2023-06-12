@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/logo/BeeAware3.png";
-import Login from "../../components/signUp";
-
+import Login from "../Login";
 import Auth from "../../utils/auth";
 
-
-
 const Header = () => {
+  useEffect(() => {
+    const spanElement = document.querySelector("#root > nav > div > a > span");
+    if (spanElement) {
+      spanElement.classList.add("text-3d-effect"); // Add the 3D effect class
+    }
+  }, []);
+
   const logout = (event) => {
-    // event.preventDefault();
     Auth.logout();
   };
-
-
 
   return (
     <>
@@ -59,7 +60,7 @@ const Header = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 zigzag-menu">
+            <ul className="flex flex-col font-semibold p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-yellow-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 zigzag-menu">
               <li>
                 <Link
                   to="/Info"
@@ -77,15 +78,17 @@ const Header = () => {
                   Blog
                 </Link>
               </li>
-              {}
-              <li>
-                <Link
-                  to="/me"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Profile
-                </Link>
-              </li>
+              {Auth.loggedIn() && (
+                <li>
+                  <Link
+                    to="/me"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Profile
+                  </Link>
+                </li>
+              )}
+
               <li>
                 <button
                   id="dropdownNavbarLink"

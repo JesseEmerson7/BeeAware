@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -7,6 +7,25 @@ const typeDefs = gql`
     email: String
     password: String
     profilePic: String
+    posts: [Post]
+    comments: [Comment]
+  }
+
+  type Post {
+    title: String
+    author: String
+    description: String
+    body: String
+    comments: [Comment]
+    createdAt: Int
+  }
+
+  type Comment {
+    title: String
+    author: String
+    body: String
+    likes: Int
+    createdAt: Int
   }
 
   type Auth {
@@ -25,7 +44,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     removeUser: User
-    
   }
 `;
 
