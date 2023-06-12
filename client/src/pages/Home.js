@@ -29,7 +29,7 @@ const Home = () => {
             </p>
               <div className="mt-5 sm:flex md:mt-8">
                  <div className="rounded-md shadow">
-                  <Link href=""
+                  <Link to="/signup"
                         className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-yellow-400 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-10">
                         Signup
                     </Link>
