@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER_PROFILE } from "../utils/queries";
 
 import Auth from "../utils/auth";
-// import samplePic from "../assets/img/HoneyBee_Img.jpg";
+import samplePic from "../assets/img/HoneyBee_Img.jpg";
 import PostList from "../components/PostList";
 
 
@@ -13,7 +13,7 @@ import PostList from "../components/PostList";
 const Profile = () => {
 
 
-  //button for create blog post function
+  //button for create blog post function and window redirect
   const createLoad = () => (window.location.href = "/create");
 
   const userInfo = Auth.getProfile();
@@ -42,7 +42,7 @@ const Profile = () => {
           {/* profile section with img and username/bio   */}
           <div className="flex flex-col content-center mt-5  md:justify-center md:flex-row ">
             <div className=" w-full flex justify-center md:w-1/2 md:justify-end">
-              {/* <img src={samplePic} className="rounded-full" /> */}
+              <img src={samplePic} className="rounded-full" />
             </div>
 
             <div className="flex flex-col w-full justify-center md:w-1/2  md:ml-10">
