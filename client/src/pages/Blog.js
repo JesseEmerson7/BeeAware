@@ -11,7 +11,7 @@ const Blog = () => {
   }
 
   console.log(data.allPosts);
-  const mapList = data.allPosts;
+  const mapList = data?.allPosts;
 // map over post list and create blog list
   const mapPostList = mapList.map((post) => {
     return (
