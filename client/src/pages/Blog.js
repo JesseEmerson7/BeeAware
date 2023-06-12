@@ -3,22 +3,7 @@ import "./Blog.css";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([
-    {
-      id: 1,
-      title: "Blog Post 1",
-      content: "This is the test for Blog Post 1",
-      upvotes: 10,
-      downvotes: 2,
-      createdAt: new Date(),
-    },
-    {
-      id: 2,
-      title: "Blog Post 2",
-      content: "This is the test for Blog Post 2",
-      upvotes: 5,
-      downvotes: 1,
-      createdAt: new Date(),
-    },
+    // Existing blog posts
   ]);
 
   const [newPost, setNewPost] = useState({
@@ -26,6 +11,8 @@ const Blog = () => {
     content: "",
     username: "",
   });
+
+  const [selectedTopic, setSelectedTopic] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -89,11 +76,16 @@ const Blog = () => {
     (a, b) => b.upvotes - b.downvotes - (a.upvotes - a.downvotes)
   );
 
+  const handleTopicChange = (e) => {
+    const selectedTopic = e.target.value;
+    setSelectedTopic(selectedTopic);
+  };
+
   return (
     <div className="blog-container">
       <h1 className="blog-heading">Let's Buzz about it</h1>
 
-      <div className="blog-card">
+      <div className="blog-card create-post-card">
         <h2 className="blog-title">Create a New Blog Post</h2>
         <input
           type="text"
@@ -101,12 +93,14 @@ const Blog = () => {
           placeholder="Title"
           value={newPost.title}
           onChange={handleInputChange}
+          className="create-post-input"
         />
         <textarea
           name="content"
           placeholder="Content"
           value={newPost.content}
           onChange={handleInputChange}
+          className="create-post-input"
         ></textarea>
         <input
           type="text"
@@ -114,10 +108,27 @@ const Blog = () => {
           placeholder="Your Username"
           value={newPost.username}
           onChange={handleInputChange}
+          className="create-post-input"
         />
         <button className="submit-button" onClick={handleNewPost}>
           Submit
         </button>
+      </div>
+
+      <div className="select-by-topic">
+        <h2 className="select-by-topic-title">Filter by Topic</h2>
+        <select
+          name="topic"
+          value={selectedTopic}
+          onChange={handleTopicChange}
+          className="select-topic-dropdown"
+        >
+          <option value="">All Topics</option>
+          <option value="technology">Bees</option>
+          <option value="science">Honey</option>
+          <option value="travel">Polen</option>
+          {/* To be updated as necessary */}
+        </select>
       </div>
 
       <div className="blog-card-container">
@@ -129,7 +140,9 @@ const Blog = () => {
               Created at: {post.createdAt.toLocaleString()}
             </p>
             <div className="vote-container">
-              <div className="vote-count">{post.upvotes - post.downvotes}</div>
+              <div className="vote-count">
+                {post.upvotes - post.downvotes}
+              </div>
               <button
                 className="vote-button upvote"
                 onClick={() => handleUpvote(post.id)}
