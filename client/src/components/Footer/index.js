@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const location = useLocation();
@@ -12,16 +12,16 @@ const Footer = () => {
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+            <Link href="#" class="mr-4 hover:underline md:mr-6 ">Info</Link>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+            <Link href="#" class="mr-4 hover:underline md:mr-6">Blog</Link>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+            <Link href="#" class="mr-4 hover:underline md:mr-6">Github</Link>
         </li>
         <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <Link href="#" class="hover:underline">Contact</Link>
         </li>
     </ul>
     </div>
