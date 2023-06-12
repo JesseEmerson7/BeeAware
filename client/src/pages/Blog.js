@@ -28,7 +28,7 @@ const Blog = () => {
         <h2 className=" font-bold text-lg">{post.title}</h2>
         <div className=" border-t mt-2 border-black">
           <p>{post.description}</p>
-          <p>By: {post.author}</p>
+          {/* <p>By: {post.author}</p> */}
         </div>
       </Link>
     );
