@@ -1,121 +1,45 @@
 # BeeAware
 
-[![License](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-[![Build Status](https://travis-ci.com/your-username/beeaware.svg?branch=main)](https://travis-ci.com/your-username/beeaware)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=your-app-name)](https://your-app-name.herokuapp.com)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+
+[Visit live application](https://radiant-ocean-19328.herokuapp.com/)
+
+## Description
 
 BeeAware is a web application designed to educate users about bees and everything related to bees. It features various sections that provide valuable information and resources about bees, as well as interactive features for user engagement. The app is built using Node.js, Express, React, and MongoDB.
 
 ## Features
 
-- **Ask a Beekeeper**: Users can ask questions and seek advice from experienced beekeepers.
 - **Forum**: Users can participate in discussions, share knowledge, and connect with other bee enthusiasts.
-- **Medical Section**: Provides information about bee-related allergies and links to official medical resources.
 - **User Authentication**: Users can create an account, log in, and access personalized features.
 - **Responsive Design**: The app is optimized for different devices and screen sizes.
 
-## Folder Structure
+## Usage
 
-The project has the following folder structure:
+When on the home page you can navigate the site with the navbar on the upper right. Click sign up to create an account to start posting on the blog feed. Click on the info tab and see many different types of Florida local pollinators. All user posts can be edited and deleted on the profile page in the blog post feed.
 
-├── client/ # Frontend code
-│ ├── public/ # Public assets and index.html
-│ └── src/ # React components and app-specific files
-│ ├── components/ # Reusable components
-│ ├── App.js # Main component
-│ └── index.js # Entry point
-├── server/ # Backend code
-│ ├── controllers/ # Controllers for business logic
-│ ├── models/ # Mongoose models
-│ ├── routes/ # API routes
-│ ├── config/ # Configuration files
-│ └── server.js # Server entry point
-├── .env # Environment variables
-└── ...
+![Alt text](client/src/assets/img/radiant-ocean-19328.herokuapp.com_.png)
+![Alt text](client/src/assets/img/radiant-ocean-19328.herokuapp.com_blog.png)
+## How to Contribute
 
-less
-Copy code
+To contribute please email any on the application contributors. Then push to your branch and request a merge to the main branch and we will review the new code.
 
-## Prerequisites
+## Questions
 
-Before running the application, make sure you have the following installed:
+Here is the link to my Github profile https://github.com/jesseemerson7
 
-- [Node.js](https://nodejs.org): Version 12 or higher
-- [MongoDB](https://www.mongodb.com)
+please <a href="mailto:jesseemerson7@gmail.com">email me</a> about any questions regarding this project. Feel free to inform me of which repository you are referring to and I can get back to you as soon as possible.
 
-## Getting Started
+## License
 
-1. Clone the repository:
+I used the MIT license for this project.
 
-```shell
-git clone https://github.com/JesseEmerson7/BeeAware
-Install dependencies:
 
-shell
-Copy code
-cd beeaware
-npm run install
-Configure the environment variables:
+## Contributors
+- Adam Abulkheir (@adamabulkheir)
+- Ayden Lopez-Laclaustra (@aydenemateo)
+- Alex Climenco (@AlexC3105)
+- Jesse Emerson (@JesseEmerson7)
+- Youlormans Hilaire (@youlormansH)
 
-Create a .env file in the server folder.
-Define the following variables in the .env file:
-MONGODB_URI: Connection string for your MongoDB database.
-JWT_SECRET: Secret key used for JWT authentication.
-Seed the database (optional):
-
-Run the following command to seed the database with some initial data:
-
-shell
-Copy code
-npm run seed
-Build the frontend:
-
-shell
-Copy code
-npm run build
-Start the application:
-
-shell
-Copy code
-npm start
-Open your browser and navigate to http://localhost:3001 to view the application.
-
-Deployment
-The BeeAware app can be deployed on Heroku. Follow these steps:
-
-Create a new Heroku app:
-
-shell
-Copy code
-heroku create your-app-name
-Set the necessary environment variables on Heroku:
-
-Go to the "Settings" tab of your Heroku app.
-Under the "Config Vars" section, add the following variables:
-MONGODB_URI: Connection string for your MongoDB database.
-JWT_SECRET: Secret key used for JWT authentication.
-Deploy the app to Heroku:
-
-shell
-Copy code
-git push heroku main
-Open the app in your browser:
-
-shell
-Copy code
-heroku open
-Contributing
-Contributions to BeeAware are welcome! If you find any issues or have suggestions for improvements, please create a new issue or submit a pull request.
-
-Contributors
-Adam Abulkheir (@adamabulkheir)
-Ayden Lopez-Laclaustra (@aydenemateo)
-Alex Climenco (@AlexC3105)
-Jesse Emerson (@JesseEmerson7)
-Youlormans Hilaire (@youlormansH)
-License
-This project is licensed under the ISC License.
-
-javascript
-Copy code
-```
