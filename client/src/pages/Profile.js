@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { QUERY_USER_PROFILE } from "../utils/queries";
@@ -25,6 +24,12 @@ const Profile = () => {
   const posts = data?.user.posts;
   console.log(posts);
 
+  //function for editing user profile info
+  const editBio = document.getElementById("bio");
+  const handleUserEdit = () => {
+    console.log(editBio.innerText);
+  };
+
   if (loading) {
     return <div>loading...</div>;
   }
@@ -36,8 +41,13 @@ const Profile = () => {
           id="profile-container"
           className="flex flex-col w-full justify-center"
         >
-          <div className=" absolute right-1 bottom-[.5%] mr-[14%] md:mr-[20%]">
-            <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500">edit</span>
+          <div
+            onClick={handleUserEdit}
+            className=" absolute right-0 mr-3 md:mr-0 md:right-[30%]"
+          >
+            <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500">
+              edit
+            </span>
           </div>
           {/* profile section with img and username/bio   */}
           <div className="flex flex-col content-center mt-5  md:justify-center md:flex-row ">
@@ -49,7 +59,10 @@ const Profile = () => {
               <h1 className=" font-bold text-xl w-full text-center mt-3 md:text-start">
                 {username}
               </h1>
-              <p className=" border border-gray-100 w-full mt-4 pl-5 pr-4 text-center md:text-left md:w-1/2  md:p-2 ">
+              <p
+                id="bio"
+                className=" border border-gray-100 w-full mt-4 pl-5 pr-4 text-center md:text-left md:w-1/2  md:p-2 "
+              >
                 {userBio}
               </p>
             </div>
