@@ -1,11 +1,12 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER_PROFILE = gql`
-query User {
+query user {
   user {
     _id
     username
     profilePic
+    bio
     email
     posts {
       _id
