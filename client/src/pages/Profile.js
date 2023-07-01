@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-
+import { Link } from "react-router-dom";
 import { QUERY_USER_PROFILE } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -22,7 +22,8 @@ const Profile = () => {
   const userBio = data?.user.bio;
   console.log(data);
   const posts = data?.user.posts;
-  console.log(posts);
+  const userId = data?.user._id;
+  
 
   //function for editing user profile info
   const editBio = document.getElementById("bio");
@@ -41,14 +42,14 @@ const Profile = () => {
           id="profile-container"
           className="flex flex-col w-full justify-center"
         >
-          <div
-            onClick={handleUserEdit}
+          <Link
+            to={`/edit-profile/${userId}`}
             className=" absolute right-0 mr-3 md:mr-0 md:right-[30%]"
           >
             <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500">
               edit
             </span>
-          </div>
+          </Link>
           {/* profile section with img and username/bio   */}
           <div className="flex flex-col content-center mt-5  md:justify-center md:flex-row ">
             <div className=" w-full flex justify-center md:w-1/2 md:justify-end">
