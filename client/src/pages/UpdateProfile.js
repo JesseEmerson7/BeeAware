@@ -18,7 +18,14 @@ const UpdateProfile = () => {
   useEffect(() => {});
 
   //handel form change to update the state of the user data
-  const handleFormChange = (event) => {};
+  const handleFormChange = (event) => {
+    const {name, value} = event.target
+    ChangeUserData({
+        ...userData,
+        [name]:value
+    })
+    console.log(userData)
+  };
 
   // on submit the user data will use mutation to change the database and update the profile page.
   const handleFormSubmit = (event) => {};
@@ -44,7 +51,7 @@ const UpdateProfile = () => {
             for="base-input"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Change Profile Bio
+            Change Bio
           </label>
           <input
             type="text"
