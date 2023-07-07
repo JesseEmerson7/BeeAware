@@ -43,7 +43,7 @@ const Profile = () => {
           className="flex flex-col w-full justify-center"
         >
           <Link
-            to={`/edit-profile/${userId}`}
+            to={`/edit-profile`}
             className=" absolute right-0 mr-3 md:mr-0 md:right-[30%]"
           >
             <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500">

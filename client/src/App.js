@@ -53,7 +53,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/me" element={<Profile />} />
-              <Route path="/edit-profile/:id" element={<UpdateProfile />} />
+              <Route path="/edit-profile" element={<UpdateProfile />} />
               <Route path="/Info" element={<InfoPage />} />
               <Route path="/create" element={<CreatePost />} />
               <Route path="/update/:id" element={<UpdateForm />} />
