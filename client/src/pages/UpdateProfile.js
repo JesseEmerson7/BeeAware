@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_PROFILE } from "../utils/queries";
+import { UPDATE_USER } from "../utils/mutations";
 import auth from "../utils/auth";
+
 
 const UpdateProfile = () => {
   const userInfo = auth.getProfile();
@@ -10,6 +12,9 @@ const UpdateProfile = () => {
   const { loading, data } = useQuery(QUERY_USER_PROFILE, {
     variables: { userId: userInfo.data._id },
   });
+
+//mutation for updating user info
+  const [updateThatUser, { error }] = useMutation(UPDATE_USER);
 
   //state for the form from user data
   const [userData, ChangeUserData] = useState(data?.user);
@@ -28,7 +33,20 @@ const UpdateProfile = () => {
   };
 
   // on submit the user data will use mutation to change the database and update the profile page.
-  const handleFormSubmit = (event) => {};
+  const handleFormSubmit = async (event) => {
+    console.log("clicking")
+    event.preventDefault();
+    try{
+      const {data} = await updateThatUser({
+        variables: { bio:userData.bio },
+      })
+      if(data){
+        window.alert(`bio updated to ${data.updateUser.bio}`);
+      }
+    }catch(error) {
+
+    }
+  };
 
   //if user data has not been fetched a loading indicator will be displayed
   if (loading) {
@@ -60,6 +78,7 @@ const UpdateProfile = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
+        <button type="submit">submit</button>
       </form>
     </>
   );

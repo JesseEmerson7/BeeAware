@@ -49,6 +49,7 @@ const typeDefs = gql`
     removeUser: User
     deletePost(postId:ID): User
     updatePost(postId:ID! ,title:String!, description:String!, body:String!):Post
+    updateUser(bio:String, profilePic:String ): User
   }
 `;
 

@@ -84,12 +84,9 @@ export const ADD_USER = gql`
   }
 `;
 
-// export const REMOVE_SKILL = gql`
-//   mutation removeSkill($skill: String!) {
-//     removeSkill(skill: $skill) {
-//       _id
-//       name
-//       skills
-//     }
-//   }
-// `;
+export const UPDATE_USER = gql`mutation updateUser($bio: String, $profilePic: String) {
+  updateUser(bio: $bio, profilePic: $profilePic) {
+    bio
+    profilePic
+  }
+}`
