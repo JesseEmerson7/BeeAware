@@ -36,7 +36,7 @@ const handleDeletePost = async (event) =>{
           {postList.map((post) => (
             <div
               key={post._id}
-              className="flex flex-row justify-center content-center border border-yellow-200 gap-5 h-12 py-2 w-full md:mx-10"
+              className="flex flex-row justify-center content-center border border-yellow-200 gap-5 h-12 py-2 w-full lg:w-3/4 md:mx-auto"
             >
               <h2 className="inline w-1/5 ml-7">{post.createdAt}</h2>
               <h2 className="inline w-3/5">{post.title}</h2>
