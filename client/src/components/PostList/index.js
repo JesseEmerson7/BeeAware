@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { DELETE_POST } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-const PostList = ({ posts}) => {
+const PostList = ({posts}) => {
 
     const [deletePost, {error}] = useMutation(DELETE_POST);
-    const [postList, setPostList] = useState(posts);
+    const [postList, setPostList] = useState([]);
       //delete button finds id for post and deletes it from the database. then updates post list state
 const handleDeletePost = async (event) =>{
     try{
@@ -18,11 +18,17 @@ const handleDeletePost = async (event) =>{
     }catch(error){
         console.log(error);
     }
-  
-  
+    
   }
 
-    if (posts.length === 0) {
+  useEffect(() => {
+    if(posts){
+      setPostList(posts);
+    }
+   
+  }, [posts]);
+
+    if (!posts || posts.length === 0) {
       return <div className=" text-center mt-10 font-bold border border-yellow-300 w-full mx-10">You have no blog posts yet!</div>;
     } else {
       return (

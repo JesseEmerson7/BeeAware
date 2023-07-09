@@ -18,6 +18,7 @@ import Blog from "./pages/Blog";
 import CreatePost from "./pages/CreatePost";
 import UpdateForm from "./pages/updatePost";
 import SinglePost from "./pages/SinglePost";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -52,6 +53,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/me" element={<Profile />} />
+              <Route path="/edit-profile" element={<UpdateProfile />} />
               <Route path="/Info" element={<InfoPage />} />
               <Route path="/create" element={<CreatePost />} />
               <Route path="/update/:id" element={<UpdateForm />} />

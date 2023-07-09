@@ -50,14 +50,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-
-    // Set up mutation so a logged in user can only remove their profile and no one else's
-    // removeUser: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return User.findOneAndDelete({ _id: context.user._id });
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
     createPost: async (parent, args, context) => {
       if (context.user) {
         const newPost = await Post.create({
@@ -111,7 +103,20 @@ const resolvers = {
 
         return updatedPost;
       }
+    },
+    updateUser: async (parent, args, context) => {
+      if(context.user){
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },{
+           $set: {
+            bio:args.bio, profilePic:args.profilePic
+          } 
+          }, {new: true}
+        )
+        return updatedUser;
+      }
     }
+
   },
 };
 

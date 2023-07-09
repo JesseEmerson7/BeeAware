@@ -24,6 +24,11 @@ const userSchema = new Schema(
     profilePic: {
       type: String,
     },
+    bio: {
+      type: String,
+      maxLength: 120,
+      default: "NewBee bio!"
+    },
     posts: [
       {
         type: Schema.Types.ObjectId,
