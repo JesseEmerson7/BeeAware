@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import { UPDATE_POST } from "../utils/mutations";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const UpdateForm = () => {
+  const navigate = useNavigate();
   //post id form url
   const { id } = useParams();
 
@@ -67,7 +68,7 @@ const UpdateForm = () => {
         setIsVisible(true);
         setTimeout(() => {
           setIsVisible(false);
-          window.location.assign("/me");
+          navigate("/me");
         }, 2000);
       }
     } catch (error) {

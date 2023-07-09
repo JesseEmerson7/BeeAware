@@ -3,7 +3,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER_PROFILE } from "../utils/queries";
 import { UPDATE_USER } from "../utils/mutations";
 import auth from "../utils/auth";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
   //bringing in navigate from react router
@@ -49,7 +49,9 @@ const UpdateProfile = () => {
       }
     } catch (error) {
       console.log(error);
-      window.alert("There was an error updating your profile. Please try again later or contact support.")
+      window.alert(
+        "There was an error updating your profile. Please try again later or contact support."
+      );
     }
   };
 
@@ -66,9 +68,13 @@ const UpdateProfile = () => {
   return (
     <>
       <div className=" text-center text-lg my-5">
-      Here you can edit your profile information.
+        Here you can edit your profile information.
       </div>
-      <form onChange={handleFormChange} onSubmit={handleFormSubmit} className="flex flex-col justify-center ">
+      <form
+        onChange={handleFormChange}
+        onSubmit={handleFormSubmit}
+        className="flex flex-col justify-center "
+      >
         <div className="mb-6 mx-8 lg:mx-20">
           <label
             for="base-input"
@@ -83,7 +89,12 @@ const UpdateProfile = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
-        <button type="submit" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mt-5 mb-2 w-2/4 mx-auto dark:focus:ring-yellow-900">Update</button>
+        <button
+          type="submit"
+          className="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mt-5 mb-2 w-2/4 mx-auto dark:focus:ring-yellow-900"
+        >
+          Update
+        </button>
       </form>
     </>
   );

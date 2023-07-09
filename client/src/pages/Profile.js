@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { QUERY_USER_PROFILE } from "../utils/queries";
@@ -14,16 +14,27 @@ const Profile = () => {
 
   const userInfo = Auth.getProfile();
 
-  const { loading, data } = useQuery(QUERY_USER_PROFILE, {
+  const { loading, data, refetch } = useQuery(QUERY_USER_PROFILE, {
     variables: { userId: userInfo.data._id },
   });
 
-  const username = data?.user.username;
-  const userBio = data?.user.bio;
-  console.log(data);
-  const posts = data?.user.posts;
-  const userId = data?.user._id;
+  const [user, changeUserState] = useState({});
+
+  useEffect(()=>{
+    if(!loading && data){
+      changeUserState(data)
+    }
+  },[data,loading])
   
+  useEffect(()=>{
+    refetch();
+  });
+
+  // const username = user.user.username;
+  // const userBio = user.user.bio;
+  const posts = user?.user?.posts;
+  // const userId = user.user._id;
+  // console.log(user.user.username);
 
   //function for editing user profile info
   const editBio = document.getElementById("bio");
@@ -31,10 +42,11 @@ const Profile = () => {
     console.log(editBio.innerText);
   };
 
-  if (loading) {
+  if (loading && !data) {
     return <div>loading...</div>;
   }
 
+  
   return (
     <>
       <div className="flex flex-col justify-center ">
@@ -58,13 +70,13 @@ const Profile = () => {
 
             <div className="flex flex-col w-full justify-center md:w-1/2  md:ml-10">
               <h1 className=" font-bold text-xl w-full text-center mt-3 md:text-start">
-                {username}
+                {user?.user?.username}
               </h1>
               <p
                 id="bio"
                 className=" border border-gray-100 w-full mt-4 pl-5 pr-4 text-center md:text-left md:w-1/2  md:p-2 "
               >
-                {userBio}
+                {user?.user?.bio}
               </p>
             </div>
           </div>
@@ -93,6 +105,7 @@ const Profile = () => {
       </div>
     </>
   );
+
 };
 
 export default Profile;
