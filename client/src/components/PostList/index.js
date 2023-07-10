@@ -29,7 +29,7 @@ const handleDeletePost = async (event) =>{
   }, [posts]);
 
     if (!posts || posts.length === 0) {
-      return <div className=" text-center mt-10 font-bold border border-yellow-300 w-full mx-10">You have no blog posts yet!</div>;
+      return <div className=" text-center mt-10 font-bold border border-yellow-300 w-full md:w-3/4 mx-auto">You have no blog posts yet!</div>;
     } else {
       return (
         <>
