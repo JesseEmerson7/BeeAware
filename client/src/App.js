@@ -46,8 +46,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Header />
-        <div className="flex-col flex justify-start min-h-screen">
-          <div className="container">
+        <div className="min-h-screen">
+          <div >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
