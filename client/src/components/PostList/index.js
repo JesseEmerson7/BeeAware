@@ -30,35 +30,36 @@ const PostList = ({ posts }) => {
 
   if (!posts || posts.length === 0) {
     return (
-      <section className="w-full md:w-3/4 flex flex-col mx-auto border rounded-lg shadow-lg">
+      <section className="w-full md:w-8/12 lg:w-4/6 xl:w-3/6  flex flex-col mx-auto pb-4 border rounded-lg shadow-lg bg-amber-100 bg-opacity-20">
         <header
           id="post-list-header"
           className="w-full h-24 text-center rounded-t-lg flex justify-center items-center"
         >
-          <div id="post-title" className=" w-2/6">
+          <div id="post-title" className=" w-1/2 md:w-3/6 ">
             <h2 className=" text-xl font-bold">No blog posts yet? </h2>
             <p className="text-lg">Post something buzz-worthy!</p>
           </div>
         </header>
         {/* body row */}
-        <div>
+        <div className="flex flex-col text-center">
           {/* col 1 */}
-          <div>
+          <div className="border w-10/12 mx-auto mt-6 mb-3 rounded-lg shadow-md bg-white">
             <div>
-              <h2>Got a question?</h2>
-              <p>Post a question for other bee keepers or experts to answer!</p>
+              <h2 className=" font-semibold text-lg border rounded-t-lg bg-yellow-400">Got a question?</h2>
+              <p className=" text-lg">Post a question for other bee keepers or experts to answer! <br/>(coming soon)</p>
             </div>
-            <Link> View Blog</Link>
           </div>
           {/* col 2 */}
-          <div>
-            <div>
-              <h2>Post about anything bee related on the blog.</h2>
+          <div >
+            <div className="border w-10/12 mx-auto rounded-lg shadow-md bg-white mb-10 text-lg">
+              <h2 className="font-semibold text-lg border rounded-t-lg bg-yellow-400">Post about anything bee related on the blog.</h2>
               <p>
-                There are many subject to talk about from backyard bee keeping,
-                to Florida's local pollinators. Post whats on your mind!
+                Talk about anything such as backyard bee keeping, <br/> Florida's local pollinators, and so much more.
               </p>
+             
             </div>
+            <Link to={"/blog"} className=" focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 w-5/6 mx-auto md:w-1/5"> View the blog page</Link>
+            
           </div>
         </div>
       </section>
