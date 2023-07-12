@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <main>
 <div className="text-center p-8 ">
-    <div className="flex flex-wrap items-center mt-20 text-left justify-center ">
+    <div className="flex flex-wrap items-center mt-20 text-left justify-center">
         <div className="w-full md:w-3/4 lg:w-1/2 px-4">
             <video src={Video} muted autoPlay loop alt="project members" className=" rounded-full aspect-square-full border-merino-400">
         </video>

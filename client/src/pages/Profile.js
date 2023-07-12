@@ -20,13 +20,13 @@ const Profile = () => {
 
   const [user, changeUserState] = useState({});
 
-  useEffect(()=>{
-    if(!loading && data){
-      changeUserState(data)
+  useEffect(() => {
+    if (!loading && data) {
+      changeUserState(data);
     }
-  },[data,loading])
-  
-  useEffect(()=>{
+  }, [data, loading]);
+
+  useEffect(() => {
     refetch();
   });
 
@@ -46,7 +46,6 @@ const Profile = () => {
     return <div>loading...</div>;
   }
 
-  
   return (
     <>
       <div className="flex flex-col justify-center ">
@@ -54,14 +53,6 @@ const Profile = () => {
           id="profile-container"
           className="flex flex-col w-full justify-center"
         >
-          <Link
-            to={`/edit-profile`}
-            className=" absolute right-0 mr-3 md:mr-0 md:right-[30%]"
-          >
-            <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500">
-              edit
-            </span>
-          </Link>
           {/* profile section with img and username/bio   */}
           <div className="flex flex-col content-center mt-5  md:justify-center md:flex-row ">
             <div className=" w-full flex justify-center md:w-1/2 md:justify-end">
@@ -69,15 +60,25 @@ const Profile = () => {
             </div>
 
             <div className="flex flex-col w-full justify-center md:w-1/2  md:ml-10">
-              <h1 className=" font-bold text-xl w-full text-center mt-3 md:text-start">
-                {user?.user?.username}
-              </h1>
-              <p
-                id="bio"
-                className=" border border-gray-100 w-full mt-4 pl-5 pr-4 text-center md:text-left md:w-1/2  md:p-2 "
-              >
-                {user?.user?.bio}
-              </p>
+              <div>
+                <h1 className=" font-bold text-xl text-center mt-3 md:text-start w-full">
+                  {user?.user?.username}
+                </h1>
+                <p
+                  id="bio"
+                  className=" border rounded-lg border-gray-100 w-full mt-4 pl-5 pr-4 text-center md:text-left md:w-1/2  md:p-2 "
+                >
+                  {user?.user?.bio}
+                </p>
+              </div>
+              {/* button to edit profile */}
+              <div className="flex justify-end w-full md:w-1/2 relative bottom-3">
+                <Link to={`/edit-profile`}>
+                  <span className="material-symbols-outlined hover:cursor-pointer hover:text-gray-400 bg-amber-100 p-2 md:p-1 rounded-xl hover:bg-amber-500 ">
+                    edit
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
           {/* div for blog posts to be populated */}
@@ -87,12 +88,12 @@ const Profile = () => {
           >
             <button
               type="button"
-              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 w-5/6 mx-auto md:w-1/5"
+              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-10 w-5/6 mx-auto md:w-1/5"
               onClick={createLoad}
             >
               Create New Blog Post
             </button>
-            <h2 className="text-center font-semibold mt-4">My Blog Posts</h2>
+            
             <div>
               <PostList posts={posts} />
             </div>
@@ -105,7 +106,6 @@ const Profile = () => {
       </div>
     </>
   );
-
 };
 
 export default Profile;
