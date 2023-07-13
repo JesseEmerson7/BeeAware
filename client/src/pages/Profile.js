@@ -93,7 +93,7 @@ const Profile = () => {
             >
               Create New Blog Post
             </button>
-            
+
             <div>
               <PostList posts={posts} />
             </div>
