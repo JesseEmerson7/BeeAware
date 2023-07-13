@@ -7,6 +7,11 @@ import "./PostList.css";
 const PostList = ({ posts }) => {
   const [deletePost, { error }] = useMutation(DELETE_POST);
   const [postList, setPostList] = useState([]);
+
+  //date formatting logic for post list
+  const time = new Intl.DateTimeFormat("en-us",{
+    dateStyle: "short"
+  })
   //delete button finds id for post and deletes it from the database. then updates post list state
   const handleDeletePost = async (event) => {
     try {
@@ -91,10 +96,10 @@ const PostList = ({ posts }) => {
         {postList.map((post) => (
           <div
             key={post._id}
-            className="flex flex-row justify-center content-center border border-yellow-200 gap-5 h-12 py-2 w-full lg:w-3/4 md:mx-auto my-3 rounded-xl bg-yellow-100"
+            className="flex flex-row justify-center content-center border border-yellow-300 gap-5 h-12 py-2 w-full lg:w-3/4 md:mx-auto my-3 rounded-xl bg-yellow-100"
           >
-            <h2 className="inline w-1/5 ml-7">{post.createdAt}</h2>
-            <h2 className="inline w-3/5">{post.title}</h2>
+            <h2 className="inline w-1/5 ml-7">{time.format(post.createdAt)}</h2>
+            <h2 className="inline w-2/5 overflow-hidden">{post.title}</h2>
 
             <div className="flex flex-row justify-center gap-4 w-1/5">
               <Link
