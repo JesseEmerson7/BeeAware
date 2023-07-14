@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
@@ -7,7 +7,11 @@ import { CREATE_POST } from "../utils/mutations";
 
 const CreatePost = () => {
   const userInfo = auth.getProfile();
+  console.log(userInfo)
   console.log(userInfo.data._id);
+  const { loading, data} = useQuery(QUERY_USER_PROFILE, {
+    variables: { userId: userInfo.data._id },
+  });
   // console.log(userInfo.data._id);
   // const { loading, userData } = useQuery(QUERY_USER_PROFILE, {
   //   variables: { userId: userInfo.data._id },
@@ -22,8 +26,15 @@ const CreatePost = () => {
     title: "",
     author: userInfo.data._id,
     description: "",
+    authorName:"",
     body: "",
   });
+
+  useEffect(() => {
+    if (!loading && data) {
+      changePostState({...postState, authorName:data?.user.username });
+    }
+  }, [data, loading]);
 
   //on form change in input fields the state will change
   const handleFormChange = (event) => {
@@ -34,6 +45,7 @@ const CreatePost = () => {
       //adding author here until context is figured out
       // author: userData.user.username
     });
+    console.log(postState);
   };
 
   const handleFormSubmit = async (event) => {

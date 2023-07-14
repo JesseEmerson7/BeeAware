@@ -36,6 +36,9 @@ query allPosts {
     title
     author
     description
+    authorName
+    img
+    body
     createdAt
   }
 }

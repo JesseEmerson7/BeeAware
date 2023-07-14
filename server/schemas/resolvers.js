@@ -56,6 +56,7 @@ const resolvers = {
           title: args.title,
           author: args.author,
           description: args.description,
+          authorName: args.authorName,
           body: args.body,
         });
         const updatedUser = User.findOneAndUpdate(
