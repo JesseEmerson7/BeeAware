@@ -17,6 +17,8 @@ const typeDefs = gql`
     title: String
     author: String
     description: String
+    authorName:String
+    img:String
     body: String
     comments: [Comment]
     createdAt: String
