@@ -23,12 +23,9 @@ import { gql } from "@apollo/client";
 // `;
 
 export const CREATE_POST = gql`
-mutation createPost($title: String!, $author: String!, $description: String!, $body: String!) {
-  createPost(title: $title, author: $author, description: $description, body: $body) {
+mutation createPost($title: String!, $author: String!, $description: String!, $body: String!, $authorName: String!) {
+  createPost(title: $title, author: $author, description: $description, body: $body, authorName: $authorName) {
     _id
-    posts {
-      _id
-    }
   }
 }
 `;

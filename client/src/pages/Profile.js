@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { QUERY_USER_PROFILE } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -9,8 +9,10 @@ import PostList from "../components/PostList";
 
 //react component function
 const Profile = () => {
+  //Bringing in use navigate from react router
+  const navigate = useNavigate();
   //button for create blog post function and window redirect
-  const createLoad = () => (window.location.href = "/create");
+  const createLoad = () => navigate( "/create");
 
   const userInfo = Auth.getProfile();
 

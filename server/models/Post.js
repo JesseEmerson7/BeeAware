@@ -12,6 +12,14 @@ const postSchema = new Schema(
         required: true,
         maxLength: 150
     },
+    authorName: {
+      type:String,
+      required:true,
+    },
+    img:{
+      type:String,
+      default:"../assets/img/HoneyBee_Img.jpg"
+    },
     body: String,
     comments: [
         {
