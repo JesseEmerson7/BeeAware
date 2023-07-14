@@ -63,7 +63,7 @@ const Blog = () => {
         <section className="bg-white">
           <h3 className="text-center pt-5 text-3xl font-semibold">Feed</h3>
           <div className="flex flex-col justify-center items-center">
-            {mapPostList}
+            {mapPostList.reverse()}
           </div>
         </section>
       </div>
