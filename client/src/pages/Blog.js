@@ -21,7 +21,7 @@ const Blog = () => {
   const mapPostList = mapList.map((post) => {
     return (
       <Link
-        className="w-full bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700 mt-10 text-center hover:cursor-pointer"
+        className=" w-11/12 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700 mt-10 text-center hover:cursor-pointer"
         id={post._id}
         to={`/post/${post._id}`}
       >
@@ -36,7 +36,24 @@ const Blog = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center">{mapPostList}</div>
+      <header
+        id="blog-header"
+        className="w-full h-56 text-center flex flex-col justify-center items-center"
+      >
+        <div id="blog-text" className="py-3 px-5">
+          <h1 className=" text-6xl">Welcome</h1>
+          <h2 className=" text-4xl">to the Bee Blog</h2>
+        </div>
+      </header>
+      {/* Blog feed section */}
+      <div id="blog-feed-bg" className="px-0 md:px-9">
+      <section className="bg-white">
+        <h3 className="text-center pt-5 text-xl font-semibold">Feed</h3>
+      <div className="flex flex-col justify-center items-center">{mapPostList}</div>
+      </section>
+      </div>
+      
+      
     </>
   );
 };
