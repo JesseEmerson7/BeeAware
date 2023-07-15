@@ -19,13 +19,16 @@ const Info = () => {
 
     return (
         <main>
-            <div className="card-container">
+            <div id="info-hero-img" className="w-full h-64 flex flex-col text-center md:justify-center items-end">
+                <p className=" w-1/2 md:w-1/3 bg-gray-50 md:bg-gray-400 bg-opacity-30 md:bg-opacity-20 p-1 md:p-5 rounded-lg md:mr-28 mr-1 mt-6 md:mt-0 text-xs md:text-lg font-semibold md:text-slate-50">There are many different types of bees, hornets and wasps in Florida. Here are some of the different species to be on the look out for.</p>
+            </div>
+            {/* <div className="card-container">
                 <img className="background-image w-full h-72 opacity-80"
                     id="bckgrd-img"
                     src={backgroundImage}
-                    alt="Bee on a Flower Image" />
+                    alt="Bee on a Flower" />
                 <p className="background-image-text card-content text-2xl mt-4 leading-10 absolute top-28 pl-[55%] pr-[5%] pt-[5%] font-medium"> There are many different types of bees, hornets and wasps in Florida. Here are some of the different species to be on the look out for.</p>
-            </div>
+            </div> */}
             <div className="card-container py-16">
                 <p className="card-content text-2xl px-16 leading-10">Three-fourths of the world’s flowering plants and about 35 percent of the world’s food crops depend on animal pollinators to reproduce. That’s one out of every three bites of food you eat. More than 3,500 species of native bees help increase crop yields. Some scientists estimate that one out of every three bites of food we eat exists because of animal pollinators like bees, butterflies and moths, birds and bats, and beetles and other insects.</p>
             </div>
