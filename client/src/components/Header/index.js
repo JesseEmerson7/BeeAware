@@ -28,13 +28,13 @@ const Header = () => {
             <img
               id="logo-img"
               src={logo}
-              className="h-8 mr-3 logo-flip"
+              className="md:h-8 mr-3 logo-flip hidden md:block"
               alt="BeeAware Logo"
             />
             <img
               id="logo-text"
               src={logotext}
-              className="h-12 mr-3"
+              className="md:h-12 md:mr-3 h-10 ml-5 md:ml-0 "
               alt="logo text title"
             />
           </Link>

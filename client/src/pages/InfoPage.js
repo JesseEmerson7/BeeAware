@@ -30,7 +30,7 @@ const Info = () => {
                 <p className="background-image-text card-content text-2xl mt-4 leading-10 absolute top-28 pl-[55%] pr-[5%] pt-[5%] font-medium"> There are many different types of bees, hornets and wasps in Florida. Here are some of the different species to be on the look out for.</p>
             </div> */}
             <div className="card-container py-16">
-                <p className="card-content text-2xl px-16 leading-10">Three-fourths of the world’s flowering plants and about 35 percent of the world’s food crops depend on animal pollinators to reproduce. That’s one out of every three bites of food you eat. More than 3,500 species of native bees help increase crop yields. Some scientists estimate that one out of every three bites of food we eat exists because of animal pollinators like bees, butterflies and moths, birds and bats, and beetles and other insects.</p>
+                <p className="card-content text-2xl md:px-16 p-3 text-center">Three-fourths of the world’s flowering plants and about 35 percent of the world’s food crops depend on animal pollinators to reproduce. That’s one out of every three bites of food you eat. More than 3,500 species of native bees help increase crop yields. Some scientists estimate that one out of every three bites of food we eat exists because of animal pollinators like bees, butterflies and moths, birds and bats, and beetles and other insects.</p>
             </div>
             <div className="card-container pb-[5%] w-full">
                 <div className="page-title card-content text-center text-5xl font-semibold">Bees found in Florida</div>
@@ -46,7 +46,7 @@ const Info = () => {
                     />
                 </div>
                 <div className="card-content w-full lg:w-2/3" >
-                    <p className="px-6 md:pl-16 leading-7" >There was a time when you could find this bumble bee across most of North America from Quebec to Florida, westward to South Dakota, then south into the central Mountains of Mexico. Within the past decade, though, its numbers have collapsed. It is strongly suspected that the American bumble bee was infected with a virus when European bumble bees were imported into North America to pollinate greenhouse tomatoes. It is still commonly found in the southern parts of its historic distribution from Florida, west to Colorado, Texas, and New Mexico. This species favors prairies and grasslands and is rarely associated with extensive forests.</p>
+                    <p className="px-6 md:pl-16 leading-7 text-lg" >There was a time when you could find this bumble bee across most of North America from Quebec to Florida, westward to South Dakota, then south into the central Mountains of Mexico. Within the past decade, though, its numbers have collapsed. It is strongly suspected that the American bumble bee was infected with a virus when European bumble bees were imported into North America to pollinate greenhouse tomatoes. It is still commonly found in the southern parts of its historic distribution from Florida, west to Colorado, Texas, and New Mexico. This species favors prairies and grasslands and is rarely associated with extensive forests.</p>
                 </div>
             </div>
             <div className="text-3xl text-center font-medium">Brown-Belted Bumblebee</div>

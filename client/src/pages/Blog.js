@@ -27,7 +27,7 @@ const Blog = () => {
   const mapPostList = mapList.map((post) => {
     return (
       <Link
-        className=" w-11/12 p-4 bg-yellow-100 hover:bg-yellow-200 hover:border-y-amber-400  border border-gray-200 rounded-lg md:rounded-full shadow-lg sm:p-6 dark:bg-gray-800 dark:border-gray-700 mt-10 text-center hover:cursor-pointer flex flex-col md:flex-row justify-start items-center hover:shadow-2xl"
+        className=" w-11/12 p-4 bg-yellow-100 hover:bg-yellow-200 hover:border-y-amber-400 transition-all duration-300  border border-gray-200 rounded-lg md:rounded-full shadow-lg sm:p-6 dark:bg-gray-800 dark:border-gray-700 mt-10 text-center hover:cursor-pointer flex flex-col md:flex-row justify-start items-center hover:shadow-2xl"
         id={post._id}
         to={`/post/${post._id}`}
       >

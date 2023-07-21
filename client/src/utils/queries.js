@@ -23,6 +23,7 @@ query getSinglePost($postId: ID) {
     title
     description
     author
+    authorName
     body
     createdAt
   }
