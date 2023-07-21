@@ -45,12 +45,11 @@ const SinglePost = () => {
         Back
       </Link>
       <div className="my-5">
-        {" "}
         <h1 className="font-semibold text-xl">{title}</h1>
         <h2>By: {authorName}</h2>
         <h1 className="text-sm">{formattedDate}</h1>
       </div>
-      <p className=" md:w-4/6 mx-auto bg-yellow-50 p-10 rounded-lg text-xl">
+      <p className=" md:w-4/6 mx-auto bg-yellow-50 md:p-10 p-4 rounded-lg text-xl">
         {body}
       </p>
     </div>
