@@ -18,8 +18,9 @@ const Blog = () => {
   const { loading, data } = useQuery(QUERY_ALL_POSTS);
 
   if (loading && !data) {
-    return <div>Loading...</div>;
+    return <div className="flex h-screen justify-center items-center "><h1 className=" bg-yellow-200 p-7 text-xl font-semibold rounded-2xl border-2 border-yellow-500 shadow-xl shadow-amber-300">Loading...</h1></div>;
   }
+  const loadingInfo = (<div>Loading</div>)
 
   console.log(data.allPosts);
   const mapList = data?.allPosts;
@@ -63,7 +64,7 @@ const Blog = () => {
         <section className="bg-white">
           <h3 className="text-center pt-5 text-3xl font-semibold">Feed</h3>
           <div className="flex flex-col justify-center items-center">
-            {mapPostList.reverse()}
+            { !loading? mapPostList.reverse() : loadingInfo}
           </div>
         </section>
       </div>
