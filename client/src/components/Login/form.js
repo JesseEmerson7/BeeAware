@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import EyeSvg from "./eyeSvg";
 import "./form.css";
+import logo from "../../assets/logo/BeeAware3.png";
 // ---- for future use
 // import { useMutation } from "@apollo/client";
 // import { LOGIN_USER } from "../../utils/mutations";
@@ -91,10 +92,11 @@ A token would be added to the user as well when logged in.
   return (
     <section className=" w-full min-h-screen">
       {/* form div */}
-      <div className="w-full lg:w-5/12 xl:w-4/12 md:w-8/12 md:shadow-2xl md:p-16 md:relative md:bottom-24 md:mx-auto md:rounded-sm px-4 pt-2 bg-white min-h-screen">
+      <div className="w-full lg:w-5/12 xl:w-4/12 md:w-8/12 md:shadow-2xl md:p-16 md:my-10  md:mx-auto md:rounded-sm px-4 pt-2 bg-amber-100 min-h-screen border-solid border-amber-500 border">
         {/* title */}
-        <div className="mb-4">
-          <span className=" text-2xl">BeeAware</span>
+        <div className="mb-4 text-center">
+          <span className=" text-4xl " id="titleLogin">BeeAware Login</span>
+          <img src={logo} alt="Logo" width={"200px"} className=" rounded-full mx-auto mt-3"/>
         </div>
         {/* form user / password */}
         <form onSubmit={(e) => handleSubmit(e)}>
