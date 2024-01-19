@@ -117,35 +117,7 @@ const Header = () => {
                   id="dropdownNavbar"
                   className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
                 >
-                  <ul
-                    className="py-2 text-sm text-gray-700 dark:text-gray-400"
-                    aria-labelledby="dropdownLargeButton"
-                  >
-                    <li>
-                      <Link
-                        to="/ask"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Ask An Expert
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/medical"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Medical
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/donate"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Donate
-                      </Link>
-                    </li>
-                  </ul>
+                  
                   <div className="py-1">
                     {/* this link makes the modal show up for log in */}
                     {Auth.loggedIn() ? (
