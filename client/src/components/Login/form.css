@@ -38,7 +38,7 @@ input:focus {
 }
 
 .loginBtn {
-  background-color: rgba(122, 193, 67, 0.607);
+  background-color: rgba(243, 204, 12, 0.756);
   width: 90%;
   margin: auto 0;
   padding: 4px;
@@ -47,8 +47,8 @@ input:focus {
 }
 
 .loginBtn:hover {
-  background-color: var(--secondaryColor);
-  color: white;
+  background-color: rgb(15, 14, 0);
+  color: rgb(255, 255, 255);
   text-decoration: underline;
 }
 

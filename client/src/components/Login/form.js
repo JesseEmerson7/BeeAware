@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import EyeSvg from "./eyeSvg";
-import "../components/form.css";
+import "./form.css";
+// ---- for future use
+// import { useMutation } from "@apollo/client";
+// import { LOGIN_USER } from "../../utils/mutations";
+
+// import Auth from "../../utils/auth";
+// import { Link } from "react-router-dom";
+// ----
+
 //login form component
 const Form = ({ setPage }) => {
   //crating a ref to first input and second
@@ -86,13 +94,7 @@ A token would be added to the user as well when logged in.
       <div className="w-full lg:w-5/12 xl:w-4/12 md:w-8/12 md:shadow-2xl md:p-16 md:relative md:bottom-24 md:mx-auto md:rounded-sm px-4 pt-2 bg-white min-h-screen">
         {/* title */}
         <div className="mb-4">
-          <span className=" text-2xl">Welcome to</span>
-          <a href="https://forms.floridarealtors.org/index/signin">
-            <img
-              src="https://forms.floridarealtors.org/fs2/images/siteLogos/login-simplicity-logo.png"
-              alt="Welcome to Form Simplicity"
-            />
-          </a>
+          <span className=" text-2xl">BeeAware</span>
         </div>
         {/* form user / password */}
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -106,7 +108,7 @@ A token would be added to the user as well when logged in.
               }
               for="username"
             >
-              User ID
+              Email
             </label>
             <input
               onChange={(e) => handleFormChange(e)}
@@ -120,7 +122,7 @@ A token would be added to the user as well when logged in.
               ref={firstInputRef}
             />
             <div className={userInputColor ? "hidden" : "errorPop fadeIn"}>
-              Please enter your user ID
+              Please enter your email
             </div>
           </div>
           {/* password */}
@@ -158,14 +160,7 @@ A token would be added to the user as well when logged in.
               Please enter your password
             </div>
           </div>
-          <div className="mb-10">
-            <a
-              className="dgLink text-sm hover:underline font-semibold"
-              href="https://github.com/JesseEmerson7"
-            >
-              I would like to reset or register my password.
-            </a>
-          </div>
+          {/* reset password here  */}
 
           <div
             className={!submitErr ? "hidden" : "errorPop text-center text-xl"}
@@ -179,28 +174,7 @@ A token would be added to the user as well when logged in.
           </div>
 
           {/* info */}
-          <div>
-            <p className=" text-xs mb-10">
-              We're committed to your privacy. Form Simplicity uses your
-              provided information to contact you about new features, training,
-              and more. You may unsubscribe from these communications at any
-              time.
-              <a
-                href="https://www.floridarealtors.org/"
-                className=" no-underline text-blue-600 hover:underline"
-              >
-                Privacy Policy
-              </a>
-            </p>
-            <a href="https://www.floridarealtors.org/" target="blank">
-              <img
-                className="w-full pb-14"
-                src="https://forms.floridarealtors.org/fs2/images/loginLogos/florida-logo.png"
-                alt="Florida Realtors Logo"
-                id="formLogo"
-              />
-            </a>
-          </div>
+          
         </form>
       </div>
     </section>
