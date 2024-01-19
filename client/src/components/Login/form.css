@@ -1,0 +1,72 @@
+section {
+  color: rgb(76, 81, 76);
+}
+
+.needed::after {
+  content: "*";
+  color: red;
+}
+
+.label {
+  font-size: large;
+}
+
+.formInput {
+  border-bottom: 2px solid rgb(3, 50, 3);
+  height: 2rem;
+}
+.formInputFalse {
+  border: 1px dashed rgb(220, 40, 8);
+  border-bottom: 2px solid rgb(220, 40, 8);
+  height: 2rem;
+  border-radius: 5px;
+}
+
+.formInput::marker {
+  border: 1px dashed rgb(1, 100, 1);
+}
+
+input:focus {
+  outline: none;
+  border: 1px dashed rgb(1, 100, 1);
+  border-bottom: 2px solid rgb(1, 100, 1);
+  height: 2rem;
+}
+
+.dgLink {
+  color: rgb(5, 129, 5);
+}
+
+.loginBtn {
+  background-color: rgba(122, 193, 67, 0.607);
+  width: 90%;
+  margin: auto 0;
+  padding: 4px;
+  border: 1px solid var(--secondaryColor);
+  border-radius: 4px;
+}
+
+.loginBtn:hover {
+  background-color: var(--secondaryColor);
+  color: white;
+  text-decoration: underline;
+}
+
+.errorPop {
+  color: rgb(197, 8, 8);
+}
+
+.fadeIn {
+  animation: fadeIn 2s;
+  opacity: 1;
+  animation-duration: 500ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
