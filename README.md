@@ -23,7 +23,7 @@ When on the home page you can navigate the site with the navbar on the upper rig
 ![Alt text](client/src/assets/img/radiant-ocean-19328.herokuapp.com_blog.png)
 ## How to Contribute
 
-To contribute please email any on the application contributors. Then push to your branch and request a merge to the main branch and we will review the new code.
+To contribute please email me with the topic "BeeAware" and give a brief description of what you would like to contribute. Once added as a contributor you then can push up your new branch and request a merge to the main branch and I will review your code.
 
 ## Questions
 
