@@ -29,7 +29,7 @@ const Form = ({ setPage }) => {
   const [passInputColor, changePassColor] = useState(true);
   const [submitErr, changeErr] = useState(false);
   const [loginBtnValue, changeLoginBtn] = useState("Log-in");
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
   //----component functions----
   //toggle to view password
   const handleEyeClick = () => {
@@ -41,11 +41,8 @@ const Form = ({ setPage }) => {
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     //changing color back to green if not empty
-    if (name === "email") {
-      changeUserColor(true);
-    } else {
-      changePassColor(true);
-    }
+    name === "email" ? changeUserColor(true) : changePassColor(true);
+
     //changing form object value
     changeFormInputs({
       ...formInputs,
@@ -54,39 +51,30 @@ const Form = ({ setPage }) => {
   };
   //on submit handler
   const handleSubmit = async (e) => {
-    /*Here I would send a POST request to the server side. I would then make a database query with that information (SELECT * FROM users
-WHERE username = userId AND password = password;) The password would be unHashed and compared. response would be sent back to the front end. If no match error message would be displayed above login button
-A token would be added to the user as well when logged in.
- */
     e.preventDefault();
-    //temp input checker until server side is done.
     changeErr(false);
     changeLoginBtn("Submitting...");
+    //checking database for user and token on local storage
     try {
       const { data } = await login({
         variables: { ...formInputs },
       });
       Auth.login(data.login.token);
+      changeLoginBtn("Log-in");
+      changeFormInputs({
+        userId: "",
+        password: "",
+      });
     } catch (e) {
       console.log(e);
-      //ToDO! handle wrong input here  --------------------------------------
+      if (
+        e.message === "No user with this email found!" ||
+        e.message === "Incorrect password!"
+      ) {
+        firstInputRef.current.focus();
+        changeErr(true);
+      }
     }
-
-    // if (formInputs.userId === "admin" && formInputs.password === "admin") {
-    //   changeLoginBtn("Log-in");
-    //   changeFormInputs({
-    //     userId: "",
-    //     password: "",
-    //   });
-    //   setPage(false);
-    //   // window.location = "https://github.com/JesseEmerson7";
-    // } else if (!formInputs.userId) {
-    //   firstInputRef.current.focus();
-    // } else if (!formInputs.password) {
-    //   secondInputRef.current.focus();
-    // } else {
-    //   changeErr(true);
-    // }
     changeLoginBtn("Log-in");
   };
   //onBlur of inputs
