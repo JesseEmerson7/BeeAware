@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import SignInPage from "./pages/signInPage"
 import InfoPage from "./pages/InfoPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -52,6 +53,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/signIn" element={<SignInPage/>}/>
               <Route path="/me" element={<Profile />} />
               <Route path="/edit-profile" element={<UpdateProfile />} />
               <Route path="/Info" element={<InfoPage />} />

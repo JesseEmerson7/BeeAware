@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 import logo from "../../assets/logo/BeeAware3.png";
 import logotext from "../../assets/logo/titlelogowhite.png";
@@ -7,6 +7,7 @@ import Login from "../Login";
 import Auth from "../../utils/auth";
 
 const Header = () => {
+  let navigate = useNavigate();
   useEffect(() => {
     const spanElement = document.querySelector("#root > nav > div > a > span");
     if (spanElement) {
@@ -15,6 +16,7 @@ const Header = () => {
   }, []);
 
   const logout = (event) => {
+    navigate("/Home");
     Auth.logout();
   };
 
@@ -117,7 +119,6 @@ const Header = () => {
                   id="dropdownNavbar"
                   className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
                 >
-                  
                   <div className="py-1">
                     {/* this link makes the modal show up for log in */}
                     {Auth.loggedIn() ? (
@@ -130,8 +131,7 @@ const Header = () => {
                       </Link>
                     ) : (
                       <Link
-                        data-modal-target="authentication-modal"
-                        data-modal-toggle="authentication-modal"
+                        to={"/signIn"}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                       >
                         {/* this needs to change based on context of user */}
