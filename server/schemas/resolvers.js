@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -21,10 +21,10 @@ const resolvers = {
       const post = await Post.findOne({ _id: args.postId });
       return post;
     },
-    allPosts: async (parent,args,context)=>{
+    allPosts: async (parent, args, context) => {
       const allPosts = Post.find();
       return allPosts;
-    }
+    },
   },
 
   Mutation: {
@@ -87,37 +87,65 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in");
     },
-    updatePost: async (parent,args,context) =>{
-      if(context.user){
-        const updatedPost = await Post.findOneAndUpdate({
-          _id: args.postId
-        },
-        {
-          $set:{
-            title: args.title,
-            description: args.description,
-            body: args.body
-          }
-        },
-        { new: true }
+    updatePost: async (parent, args, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          {
+            _id: args.postId,
+          },
+          {
+            $set: {
+              title: args.title,
+              description: args.description,
+              body: args.body,
+            },
+          },
+          { new: true }
         );
 
         return updatedPost;
       }
     },
     updateUser: async (parent, args, context) => {
-      if(context.user){
+      if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },{
-           $set: {
-            bio:args.bio, profilePic:args.profilePic
-          } 
-          }, {new: true}
-        )
+          { _id: context.user._id },
+          {
+            $set: {
+              bio: args.bio,
+              profilePic: args.profilePic,
+            },
+          },
+          { new: true }
+        );
         return updatedUser;
       }
-    }
-
+    },
+    //toDO! --- Create comment feature ---
+    //create new comment object and push comment to post array of comments. return new post with comment.
+    addCommentToPost: async (parent, { postId, author, body, likes = 0 }) => {
+      if (context.user) {
+        try {
+          const comment = await Comment.create({
+            author: author,
+            body: body,
+            likes: likes,
+          });
+          const updatedPost = await Post.findOneAndUpdate(
+            { id: postId },
+            {
+              $push: {
+                comments: comment,
+              },
+            },
+            { returnOriginal: false }
+          );
+          return updatedPost;
+        } catch (error) {
+          return error.message;
+        }
+      }
+    },
   },
 };
 

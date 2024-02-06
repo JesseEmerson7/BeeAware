@@ -25,7 +25,6 @@ const typeDefs = gql`
   }
 
   type Comment {
-    title: String
     author: String
     body: String
     likes: Int
@@ -52,6 +51,7 @@ const typeDefs = gql`
     deletePost(postId:ID): User
     updatePost(postId:ID! ,title:String!, description:String!, body:String!):Post
     updateUser(bio:String, profilePic:String ): User
+    addCommentToPost(postId:ID, author:String!, body:String!, Likes:Int) : Post
   }
 `;
 
