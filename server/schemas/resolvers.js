@@ -123,8 +123,12 @@ const resolvers = {
     },
     //toDO! --- Create comment feature ---
     //create new comment object and push comment to post array of comments. return new post with comment.
-    addCommentToPost: async (parent, { postId, author, body, likes = 0 }) => {
-      if (context.user) {
+    addCommentToPost: async (
+      parent,
+      { postId, author, body, likes = 0 },
+      context
+    ) => {
+      // if (context.user) {
         try {
           const comment = await Comment.create({
             author: author,
@@ -132,13 +136,13 @@ const resolvers = {
             likes: likes,
           });
           const updatedPost = await Post.findOneAndUpdate(
-            { id: postId },
+            { _id: postId },
             {
               $push: {
-                comments: comment,
+                comments: comment._id,
               },
             },
-            { returnOriginal: false }
+            { new: true }
           );
           return updatedPost;
         } catch (error) {
@@ -146,7 +150,7 @@ const resolvers = {
         }
       }
     },
-  },
-};
+  };
+// };
 
 module.exports = resolvers;
