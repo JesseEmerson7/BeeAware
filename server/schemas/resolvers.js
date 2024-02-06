@@ -122,6 +122,7 @@ const resolvers = {
       }
     },
     //toDO! --- Create comment feature ---
+    //creating comments and adding ID to post array of comments. may need to make a query of comments and a mutation to update and delete comments.
     //create new comment object and push comment to post array of comments. return new post with comment.
     addCommentToPost: async (
       parent,
@@ -129,28 +130,28 @@ const resolvers = {
       context
     ) => {
       // if (context.user) {
-        try {
-          const comment = await Comment.create({
-            author: author,
-            body: body,
-            likes: likes,
-          });
-          const updatedPost = await Post.findOneAndUpdate(
-            { _id: postId },
-            {
-              $push: {
-                comments: comment._id,
-              },
+      try {
+        const comment = await Comment.create({
+          author: author,
+          body: body,
+          likes: likes,
+        });
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          {
+            $push: {
+              comments: comment._id,
             },
-            { new: true }
-          );
-          return updatedPost;
-        } catch (error) {
-          return error.message;
-        }
+          },
+          { new: true }
+        );
+        return updatedPost;
+      } catch (error) {
+        return error.message;
       }
     },
-  };
+  },
+};
 // };
 
 module.exports = resolvers;
