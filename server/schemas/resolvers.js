@@ -125,8 +125,7 @@ const resolvers = {
     },
     //toDO! --- Create comment feature ---
     //creating comments and adding ID to post array of comments. may need to make a query of comments and a mutation to update and delete comments. possibly use a populate of comments when querying a post.
-    // 2/06 comments populated with single post 
-    //create new comment object and push comment to post array of comments. return new post with comment.
+   
     addCommentToPost: async (
       parent,
       { postId, author, body, likes = 0 },
