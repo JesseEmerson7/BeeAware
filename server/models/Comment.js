@@ -10,9 +10,7 @@ const commentSchema = new Schema(
     },
   },
   {
-    toJSON: {
-      timestamps: true,
-    },
+    timestamps: true,
   }
 );
 
