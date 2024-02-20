@@ -27,6 +27,7 @@ export const QUERY_SINGLE_POST = gql`
       body
       createdAt
       comments {
+        _id
         author
         body
         likes
