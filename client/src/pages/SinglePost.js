@@ -25,7 +25,7 @@ const SinglePost = () => {
     );
   }
 
-  const { title, body, createdAt, authorName, comments } = postData;
+  const { title, body, createdAt, authorName, author, comments } = postData;
 
   const dateNumber = parseInt(createdAt);
   const date = new Date(dateNumber);
@@ -53,7 +53,7 @@ const SinglePost = () => {
       <p className=" md:w-4/6 mx-auto bg-yellow-50 md:p-10 p-4 rounded-lg text-xl">
         {body}
       </p>
-      <CommentList comments={comments}/>
+      <CommentList comments={comments} id={id} author={author}/>
     </div>
   );
 };

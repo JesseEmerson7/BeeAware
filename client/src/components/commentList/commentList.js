@@ -1,20 +1,50 @@
 import "./commentList.css";
 import { formatDistanceToNow } from "date-fns";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_COMMENT_TO_POST } from "../../utils/mutations";
 
-export default function CommentList({ comments }) {
+export default function CommentList({ comments, author, id }) {
   //states
   const [CommentPop, changeCommentPop] = useState(false);
-  const [commentText, updateCommentText] = useState("")
+  const [commentText, updateCommentText] = useState("");
+  //ref
+  const inputRef = useRef(null);
+  //mutations
+  const [createComment] = useMutation(ADD_COMMENT_TO_POST);
 
   //handle comment like and adding or subtracting value to DB
   const handleLike = () => {
     //toDO: create mutation to add likes to DB and add 1 to the like value locally
   };
   //comment post button or cancel
-  const handleCommentButton = (e) => {
+  const handleCommentButton = async (e) => {
     e.preventDefault();
-    //toDO: MUTATION NEEDED
+
+    console.log(id);
+    //toDO: MUTATION NEEDED with name and pop up if not logged in maybe on click of in the input can check auth.
+    try {
+      const comment = await createComment({
+        variables: { postId:id, author:author, body:commentText },
+      });
+
+      if (comment) {
+        console.log("posted comment");
+      } else {
+        window.alert("There was an issue posting your comment");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCancelButton = () => {
+    // Clear the input box
+    inputRef.current.value = "";
+    //update the comment state
+    updateCommentText("");
+    // Close the comment pop if needed
+    changeCommentPop(false);
   };
 
   let commentsListArr = comments.map((comment) => {
@@ -55,14 +85,15 @@ export default function CommentList({ comments }) {
           {comments.length > 0 ? `Comments (${comments.length})` : <></>}
         </h3>
         {/* add a comment */}
-        <form onSubmit={ handleCommentButton}>
+        <form onSubmit={handleCommentButton}>
           {/* comment input box */}
           <input
             type="text"
             placeholder="Add a comment..."
             className=" w-5/6 m-3 mb-0 rounded-lg border-none"
             onFocus={() => changeCommentPop(true)}
-            onChange={(e)=> updateCommentText( e.target.value)}
+            onChange={(e) => updateCommentText(e.target.value)}
+            ref={inputRef}
           />
           <div
             className={` space-x-3 text-right w-5/6 mt-2  ${
@@ -70,12 +101,15 @@ export default function CommentList({ comments }) {
             } `}
           >
             <button
-              className=" rounded-xl p-1 hover:bg-amber-500 duration-100"
-              onClick={() => changeCommentPop(false)}
+              className=" rounded-xl p-2 hover:bg-amber-500 duration-100"
+              onClick={handleCancelButton}
             >
               Cancel
             </button>
-            <button type="submit" className=" bg-amber-400 rounded-xl p-1 hover:bg-amber-500 duration-300 " >
+            <button
+              type="submit"
+              className=" bg-amber-400 rounded-xl p-2 hover:bg-amber-500 duration-300 "
+            >
               Comment
             </button>
           </div>
