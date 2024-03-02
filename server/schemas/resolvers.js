@@ -155,6 +155,19 @@ const resolvers = {
         return error.message;
       }
     },
+    // adding likes to a comment when like button is clicked
+    changeCommentLike: async (parent,{commentId},context) => {
+      try {
+        const comment = await Comment.findById(commentId);
+        comment.likes += 1;
+        await comment.save();
+        return comment.likes;
+
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
   },
 };
 // };

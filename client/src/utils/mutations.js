@@ -79,3 +79,7 @@ export const ADD_COMMENT_TO_POST = gql`mutation Mutation($postId: ID, $author: S
     }
   }
 }`
+
+export const ADD_LIKE_TO_COMMENT = gql `mutation Mutation($commentId: String) {
+  changeCommentLike(commentId: $commentId)
+}`

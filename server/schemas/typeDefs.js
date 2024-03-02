@@ -54,6 +54,7 @@ const typeDefs = gql`
     updatePost(postId:ID! ,title:String!, description:String!, body:String!):Post
     updateUser(bio:String, profilePic:String ): User
     addCommentToPost(postId:ID, author:String!, body:String!, Likes:Int) : Post
+    changeCommentLike(commentId: String): Int!
   }
 `;
 
