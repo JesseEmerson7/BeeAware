@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -18,13 +18,15 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     getSinglePost: async (parent, args, context) => {
-      const post = await Post.findOne({ _id: args.postId });
+      const post = await Post.findOne({ _id: args.postId }).populate(
+        "comments"
+      );
       return post;
     },
-    allPosts: async (parent,args,context)=>{
+    allPosts: async (parent, args, context) => {
       const allPosts = Post.find();
       return allPosts;
-    }
+    },
   },
 
   Mutation: {
@@ -87,38 +89,87 @@ const resolvers = {
       }
       throw new AuthenticationError("You must be logged in");
     },
-    updatePost: async (parent,args,context) =>{
-      if(context.user){
-        const updatedPost = await Post.findOneAndUpdate({
-          _id: args.postId
-        },
-        {
-          $set:{
-            title: args.title,
-            description: args.description,
-            body: args.body
-          }
-        },
-        { new: true }
+    updatePost: async (parent, args, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          {
+            _id: args.postId,
+          },
+          {
+            $set: {
+              title: args.title,
+              description: args.description,
+              body: args.body,
+            },
+          },
+          { new: true }
         );
 
         return updatedPost;
       }
     },
     updateUser: async (parent, args, context) => {
-      if(context.user){
+      if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },{
-           $set: {
-            bio:args.bio, profilePic:args.profilePic
-          } 
-          }, {new: true}
-        )
+          { _id: context.user._id },
+          {
+            $set: {
+              bio: args.bio,
+              profilePic: args.profilePic,
+            },
+          },
+          { new: true }
+        );
         return updatedUser;
       }
-    }
+    },
+    //toDO! --- Create comment feature ---
+    //creating comments and adding ID to post array of comments. may need to make a query of comments and a mutation to update and delete comments. possibly use a populate of comments when querying a post.
 
+    addCommentToPost: async (
+      parent,
+      { postId, author, body, likes = 0 },
+      context
+    ) => {
+      // if (context.user) {
+      try {
+        const {username} = await User.findById(author).select("username");
+        const comment = await Comment.create({
+          author: username,
+          authorId: author,
+          body: body,
+          likes: likes,
+        });
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          {
+            $push: {
+              comments: comment._id,
+            },
+          },
+          { new: true }
+        );
+        return updatedPost;
+      } catch (error) {
+        console.log(error);
+        return error.message;
+      }
+    },
+    // adding likes to a comment when like button is clicked
+    changeCommentLike: async (parent,{commentId},context) => {
+      try {
+        const comment = await Comment.findById(commentId);
+        comment.likes += 1;
+        await comment.save();
+        return comment.likes;
+
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
   },
 };
+// };
 
 module.exports = resolvers;

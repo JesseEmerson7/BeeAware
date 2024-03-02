@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import "./SinglePost.css";
+import CommentList from "./../components/commentList/commentList.js"
 // import { create } from "../../../server/models/Post";
 
 const SinglePost = () => {
@@ -14,7 +15,7 @@ const SinglePost = () => {
 
   console.log(data);
   const postData = data?.getSinglePost;
-  console.log(postData);
+  
 
   if (loading) {
     return (
@@ -24,7 +25,7 @@ const SinglePost = () => {
     );
   }
 
-  const { title, body, createdAt, authorName } = postData;
+  const { title, body, createdAt, authorName, author, comments } = postData;
 
   const dateNumber = parseInt(createdAt);
   const date = new Date(dateNumber);
@@ -52,6 +53,7 @@ const SinglePost = () => {
       <p className=" md:w-4/6 mx-auto bg-yellow-50 md:p-10 p-4 rounded-lg text-xl">
         {body}
       </p>
+      <CommentList comments={comments} id={id} author={author}/>
     </div>
   );
 };

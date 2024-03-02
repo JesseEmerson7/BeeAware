@@ -1,27 +1,5 @@
 import { gql } from "@apollo/client";
 
-// export const ADD_PROFILE = gql`
-//   mutation addProfile($name: String!, $email: String!, $password: String!) {
-//     addProfile(name: $name, email: $email, password: $password) {
-//       token
-//       profile {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
-
-// export const ADD_SKILL = gql`
-//   mutation addSkill($profileId: ID!, $skill: String!) {
-//     addSkill(profileId: $profileId, skill: $skill) {
-//       _id
-//       name
-//       skills
-//     }
-//   }
-// `;
-
 export const CREATE_POST = gql`
 mutation createPost($title: String!, $author: String!, $description: String!, $body: String!, $authorName: String!) {
   createPost(title: $title, author: $author, description: $description, body: $body, authorName: $authorName) {
@@ -86,4 +64,22 @@ export const UPDATE_USER = gql`mutation updateUser($bio: String, $profilePic: St
     bio
     profilePic
   }
+}`
+
+export const ADD_COMMENT_TO_POST = gql`mutation Mutation($postId: ID, $author: String!, $body: String!, $likes: Int) {
+  addCommentToPost(postId: $postId, author: $author, body: $body, Likes: $likes) {
+    _id
+    title
+    author
+    comments {
+      author
+      body
+      likes
+      createdAt
+    }
+  }
+}`
+
+export const ADD_LIKE_TO_COMMENT = gql `mutation Mutation($commentId: String) {
+  changeCommentLike(commentId: $commentId)
 }`

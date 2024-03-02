@@ -2,11 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const commentSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
     author: String,
+    authorId: String,
     body: String,
     likes: {
       type: Number,
@@ -14,9 +11,7 @@ const commentSchema = new Schema(
     },
   },
   {
-    toJSON: {
-      timestamps: true,
-    },
+    timestamps: true,
   }
 );
 
