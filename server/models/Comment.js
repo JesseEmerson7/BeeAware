@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose");
 const commentSchema = new Schema(
   {
     author: String,
+    authorId: String,
     body: String,
     likes: {
       type: Number,

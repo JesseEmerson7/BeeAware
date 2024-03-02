@@ -125,7 +125,7 @@ const resolvers = {
     },
     //toDO! --- Create comment feature ---
     //creating comments and adding ID to post array of comments. may need to make a query of comments and a mutation to update and delete comments. possibly use a populate of comments when querying a post.
-   
+
     addCommentToPost: async (
       parent,
       { postId, author, body, likes = 0 },
@@ -133,8 +133,10 @@ const resolvers = {
     ) => {
       // if (context.user) {
       try {
+        const {username} = await User.findById(author).select("username");
         const comment = await Comment.create({
-          author: author,
+          author: username,
+          authorId: author,
           body: body,
           likes: likes,
         });
@@ -149,6 +151,7 @@ const resolvers = {
         );
         return updatedPost;
       } catch (error) {
+        console.log(error);
         return error.message;
       }
     },

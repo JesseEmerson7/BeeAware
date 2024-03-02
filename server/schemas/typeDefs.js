@@ -27,6 +27,7 @@ const typeDefs = gql`
   type Comment {
     _id: ID
     author: String
+    authorId: String
     body: String
     likes: Int
     createdAt: String

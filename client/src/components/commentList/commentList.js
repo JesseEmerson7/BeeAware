@@ -3,6 +3,7 @@ import { formatDistanceToNow } from "date-fns";
 import { useState, useRef } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT_TO_POST } from "../../utils/mutations";
+import auth from "../../utils/auth";
 
 export default function CommentList({ comments, author, id }) {
   //states
@@ -20,25 +21,29 @@ export default function CommentList({ comments, author, id }) {
   //comment post button or cancel
   const handleCommentButton = async (e) => {
     e.preventDefault();
+    if (!auth.getToken()) {
+      window.alert("please create an account");
+    } else {
+      console.log(id);
+      try {
+        const comment = await createComment({
+          variables: { postId: id, author, body: commentText },
+        });
 
-    console.log(id);
-    //toDO: MUTATION NEEDED with name and pop up if not logged in maybe on click of in the input can check auth.
-    try {
-      const comment = await createComment({
-        variables: { postId:id, author:author, body:commentText },
-      });
-
-      if (comment) {
-        console.log("posted comment");
-      } else {
-        window.alert("There was an issue posting your comment");
+        if (comment) {
+          console.log("posted comment");
+          handleCancelButton(e);
+        } else {
+          window.alert("There was an issue posting your comment");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   };
 
-  const handleCancelButton = () => {
+  const handleCancelButton = (e) => {
+    e.preventDefault();
     // Clear the input box
     inputRef.current.value = "";
     //update the comment state
@@ -78,46 +83,43 @@ export default function CommentList({ comments, author, id }) {
     );
   });
   //ToDo! style comment div / add button to toggle comments / add comment mutation
-  if (comments.length > 0) {
-    return (
-      <div className=" bg-amber-100 w-full  md:w-4/6 mx-auto rounded-lg mt-10">
-        <h3 className=" text-xl">
-          {comments.length > 0 ? `Comments (${comments.length})` : <></>}
-        </h3>
-        {/* add a comment */}
-        <form onSubmit={handleCommentButton}>
-          {/* comment input box */}
-          <input
-            type="text"
-            placeholder="Add a comment..."
-            className=" w-5/6 m-3 mb-0 rounded-lg border-none"
-            onFocus={() => changeCommentPop(true)}
-            onChange={(e) => updateCommentText(e.target.value)}
-            ref={inputRef}
-          />
-          <div
-            className={` space-x-3 text-right w-5/6 mt-2  ${
-              CommentPop ? "" : "hidden"
-            } `}
+
+  return (
+    <div className=" bg-amber-100 w-full  md:w-4/6 mx-auto rounded-lg mt-10">
+      <h3 className=" text-xl">
+        {comments.length > 0 ? `Comments (${comments.length})` : <></>}
+      </h3>
+      {/* add a comment */}
+      <form onSubmit={handleCommentButton}>
+        {/* comment input box */}
+        <input
+          type="text"
+          placeholder="Add a comment..."
+          className=" w-5/6 m-3 mb-0 rounded-lg border-none"
+          onFocus={() => changeCommentPop(true)}
+          onChange={(e) => updateCommentText(e.target.value)}
+          ref={inputRef}
+        />
+        <div
+          className={` space-x-3 text-right w-5/6 mt-2  ${
+            CommentPop ? "" : "hidden"
+          } `}
+        >
+          <button
+            className=" rounded-xl p-2 hover:bg-amber-500 duration-100"
+            onClick={(e) => handleCancelButton(e)}
           >
-            <button
-              className=" rounded-xl p-2 hover:bg-amber-500 duration-100"
-              onClick={handleCancelButton}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className=" bg-amber-400 rounded-xl p-2 hover:bg-amber-500 duration-300 "
-            >
-              Comment
-            </button>
-          </div>
-        </form>
-        <div>{comments.length > 0 ? commentsListArr : <></>}</div>
-      </div>
-    );
-  } else {
-    return <></>;
-  }
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className=" bg-amber-400 rounded-xl p-2 hover:bg-amber-500 duration-300 "
+          >
+            Comment
+          </button>
+        </div>
+      </form>
+      <div>{comments.length > 0 ? commentsListArr : <></>}</div>
+    </div>
+  );
 }
