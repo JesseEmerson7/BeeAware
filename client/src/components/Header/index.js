@@ -25,12 +25,12 @@ const Header = () => {
       {/* login component is modal dropdown */}
       <Login />
       <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className=" flex flex-wrap items-center justify-between p-2 px-10">
           <Link to="/" className="flex items-center">
             <img
               id="logo-img"
               src={logo}
-              className="md:h-8 mr-3 logo-flip hidden md:block"
+              className="md:h-8 mr-3 hidden md:block"
               alt="BeeAware Logo"
             />
             <img
@@ -66,7 +66,15 @@ const Header = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-semibold p-4 md:p-6 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-yellow-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 zigzag-menu">
+            <ul className="flex flex-col items-center font-semibold md:p-6 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-yellow-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 zigzag-menu h-10">
+              <li>
+                <Link
+                  to="/"
+                  className="block py-2 pl-3 pr-4 text-gray-800  rounded md:bg-transparent  md:p-0 md:dark:bg-transparent"
+                >
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/Info"
