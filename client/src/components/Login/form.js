@@ -7,6 +7,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // ----
 
@@ -181,7 +182,9 @@ const Form = ({ setPage }) => {
             </button>
           </div>
 
-          {/* info */}
+          <Link to={"/signup"} className=" flex justify-center text-amber-500">
+            Don't have an account? Register a new account here!
+          </Link>
         </form>
       </div>
     </section>

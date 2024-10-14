@@ -103,7 +103,26 @@ const Header = () => {
               )}
 
               <li>
-                <button
+                <div className="">
+                  <div className="py-1">
+                    {Auth.loggedIn() ? (
+                      <Link
+                        onClick={logout}
+                        className="bg-amber-400 p-2 rounded-xl"
+                      >
+                        Sign Out
+                      </Link>
+                    ) : (
+                      <Link
+                        to={"/signIn"}
+                        className=" bg-amber-400 p-2 rounded-xl"
+                      >
+                        Sign in
+                      </Link>
+                    )}
+                  </div>
+                </div>
+                {/* <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
                   className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
@@ -122,32 +141,7 @@ const Header = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </button>
-                <div
-                  id="dropdownNavbar"
-                  className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-                >
-                  <div className="py-1">
-                    {/* this link makes the modal show up for log in */}
-                    {Auth.loggedIn() ? (
-                      <Link
-                        onClick={logout}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        {/* this needs to change based on context of user */}
-                        Sign Out
-                      </Link>
-                    ) : (
-                      <Link
-                        to={"/signIn"}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                      >
-                        {/* this needs to change based on context of user */}
-                        Sign in
-                      </Link>
-                    )}
-                  </div>
-                </div>
+                </button> */}
               </li>
             </ul>
           </div>
