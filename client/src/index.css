@@ -13,3 +13,13 @@
     'GRAD' 0,
     'opsz' 48
   }
+  
+
+  #hero-image{
+    background-image: url("./assets/img/homebg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Makes the div take up full viewport height */
+    width: 100%; /* Ensures the div stretches full width */
+  }
