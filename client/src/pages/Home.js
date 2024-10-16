@@ -10,20 +10,68 @@ import "../index.css";
 const Home = () => {
   return (
     <main>
-      <div
+      <section
         id="hero-image"
-        className=" w-screen bg-black text-white flex justify-center items-center"
+        className=" w-screen bg-black text-white flex justify-center items-center mb-12"
       >
         <div className=" text-center">
           <h1 className=" text-7xl pb-4 font-semibold">Welcome to BeeAware</h1>
           <p className="text-xl font-bold">
-            Florida's choice for local palinator information.
+            Florida's choice for local pollinator information
           </p>
           <button className="mt-7 bg-amber-400 rounded-lg px-5 py-2">
             Learn more
           </button>
         </div>
-      </div>
+      </section>
+      <section className="flex flex-row">
+        <div>
+          <div className="px-4 md:order-first text-center md:text-left lg:pr-12">
+            <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
+              About
+              <span className="font-bold text-yellow-500">Us</span>
+            </h2>
+            <p className="sm:text-lg mt-6">
+              BeeAware is a dedicated platform aimed at raising awareness about
+              the vital role of local pollinators in Florida. We are passionate
+              about promoting the significance of these essential creatures and
+              the invaluable service they provide to our ecosystems and food
+              production.
+              <br />
+              Join our website dedicated to local pollinators in Florida to gain
+              valuable insights into their importance, discover the latest news
+              and research, and connect with a passionate community.
+            </p>
+            <div className="mt-5 sm:flex md:mt-8">
+              <Link
+                to="/signup"
+                className="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-yellow-400 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-10"
+              >
+                Join the Hive
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="">
+          <video
+            src={Video}
+            muted
+            autoPlay
+            loop
+            alt="project members"
+            className="  aspect-square-full border-merino-400"
+          ></video>
+        </div>
+      </section>
+      <section>
+        <h3>Check out the Bee Blog</h3>
+        <div>
+          <p>recent blog posts</p>
+          <div>
+            {/* 3 recent posts here */}
+          </div>
+        </div>
+      </section>
       {/* <div className="text-center p-8 ">
         <div className="flex flex-wrap items-center mt-20 text-left justify-center">
           <div className="w-full md:w-3/4 lg:w-1/2 px-4">
