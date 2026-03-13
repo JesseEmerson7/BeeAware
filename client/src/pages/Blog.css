@@ -1,25 +1,44 @@
+.blog-page {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.62),
+      rgba(255, 255, 255, 0.62)),
+    url("../assets/img/flower-header.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 480px auto;
+}
 
-#blog-header{
-  background-image: url("../assets/img/blog-header.jpg");
+.blog-hero {
+  min-height: 18rem;
+  background-image: linear-gradient(rgba(36, 20, 0, 0.35),
+      rgba(36, 20, 0, 0.35)),
+    url("../assets/img/blog-header.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  
+  padding: 1.25rem;
 }
 
-#blog-text{
-  background: rgba(243, 243, 243, 0.573);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 247, 20, 0.495);
+.blog-hero-text {
+  color: #221500;
+  background: rgba(255, 248, 214, 0.82);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 213, 0, 0.55);
 }
 
-#blog-feed-bg{
-  background-image: url("../assets/img/flower-header.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.blog-feed-bg {
+  background-color: transparent;
+}
+
+.blog-feed-surface {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .blog-hero {
+    min-height: 14rem;
+    background-position: top center;
+  }
 }
