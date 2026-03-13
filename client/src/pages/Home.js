@@ -1,64 +1,81 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Video from '../assets/img/Bees.mp4'
-import Bees from '../assets/img/east.jpg'
-// import { useQuery } from '@apollo/client';
-
-// import { QUERY_PROFILES } from '../utils/queries';
-
-
-
+import React from "react";
+import { Link } from "react-router-dom";
+import Video from "../assets/img/Bees.mp4";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <main>
-<div className="text-center p-8 ">
-    <div className="flex flex-wrap items-center mt-20 text-left justify-center">
-        <div className="w-full md:w-3/4 lg:w-1/2 px-4">
-            <video src={Video} muted autoPlay loop alt="project members" className=" rounded-full aspect-square-full border-merino-400">
-        </video>
+    <main className="home-page">
+      <section className="home-hero">
+        <div className="home-hero__overlay" />
+        <div className="home-hero__content">
+          <p className="home-kicker">Florida Pollinator Resource</p>
+          <h1>Welcome to BeeAware</h1>
+          <p className="home-hero__lead">
+            Learn which local bees support your ecosystem, why they matter, and
+            how your garden and community can help them thrive.
+          </p>
+          <div className="home-hero__actions">
+            <Link to="/Info" className="home-btn home-btn--solid">
+              Learn About Bees
+            </Link>
+            <Link to="/blog" className="home-btn home-btn--outline">
+              Explore Bee Blog
+            </Link>
+          </div>
         </div>
-        <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
-            <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
-                About
-              <span className="font-bold text-yellow-500">Us</span>
-            </h2>
-            <p className="sm:text-lg mt-6">
-            Welcome to BeeAware, a dedicated platform aimed at raising awareness about the vital role of local pollinators in Florida. We are passionate about promoting the significance of these essential creatures and the invaluable service they provide to our ecosystems and food production.
-            <br/>
-            Join our website dedicated to local pollinators in Florida to gain valuable insights into their importance, discover the latest news and research, and connect with a passionate community. 
+      </section>
 
-            </p>
-              <div className="mt-5 sm:flex md:mt-8">
-                 <div className="rounded-md shadow">
-                  <Link to="/signup"
-                        className="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-yellow-400 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-10">
-                        Signup
-                    </Link>
-             </div>
-            </div>
+      <section className="home-highlights">
+        <article className="highlight-card">
+          <h3>Native Bee Guides</h3>
+          <p>Identify common Florida bee species with visuals and facts.</p>
+        </article>
+        <article className="highlight-card">
+          <h3>Pollinator Impact</h3>
+          <p>See how bee health directly supports food systems and habitats.</p>
+        </article>
+        <article className="highlight-card">
+          <h3>Community Updates</h3>
+          <p>Read local posts and discoveries from the BeeAware community.</p>
+        </article>
+      </section>
 
+      <section className="home-about">
+        <div className="home-about__text">
+          <h2>
+            About <span>BeeAware</span>
+          </h2>
+          <p>
+            BeeAware is a community-first platform focused on local pollinators
+            in Florida. We combine practical bee education, timely blog content,
+            and conservation awareness so more people can protect pollinator
+            populations where they live.
+          </p>
+          <p>
+            Join the hive to share observations, learn from local experts, and
+            support pollinator-friendly habits in your neighborhood.
+          </p>
+          <Link to="/signup" className="home-btn home-btn--solid">
+            Join the Hive
+          </Link>
         </div>
-    </div>
 
-    <div className="flex flex-wrap flex-row-reverse items-center mt-20 text-left justify-center">
-        <div className="w-full md:w-3/4 lg:w-1/2 px-4">
-            <img src= {Bees} alt="bulk" className="rounded-full  h-64 m-auto">
-        </img>
+        <div className="home-about__media">
+          <video src={Video} muted autoPlay loop playsInline />
         </div>
-        <div className="w-full md:w-2/5 lg:w-1/2 px-4 md:order-first text-center md:text-left lg:pr-12">
-        <h2 className="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
-                Fun
-              <span className="font-bold text-yellow-500">Fact</span>
-            </h2>
-            <p className="sm:text-lg mt-6">
-            Bees maintain a temperature of 92-93 degrees Fahrenheit in their central brood
-             nest regardless of whether the outside temperature is 110 or -40 degrees.
-            </p>
-        </div>
-    </div>
+      </section>
 
-</div>
+      <section className="home-blog-cta">
+        <h3>Check Out The Bee Blog</h3>
+        <p>
+          Dive into recent pollinator stories, community updates, and practical
+          tips for supporting bees in Florida.
+        </p>
+        <Link to="/blog" className="home-btn home-btn--outline">
+          Read Recent Posts
+        </Link>
+      </section>
     </main>
   );
 };
